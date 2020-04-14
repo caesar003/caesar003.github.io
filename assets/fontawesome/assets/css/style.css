@@ -1,0 +1,383 @@
+#mystudents a, #myaft a{
+  color:black;
+}
+#mystudents a:hover, #myaft a:hover{
+  color: blueviolet;
+  text-decoration: none;
+} 
+#show_topic ul {
+    padding-left: 0;
+  list-style: none;
+}
+.act{
+  color: whitesmoke;
+    background-color: #2d6157;
+}
+.syllabus_section:hover {
+    color: whitesmoke;
+    background-color: #2d6157;
+}
+.syllabus_section {
+    cursor: pointer;
+    font-weight: 400;
+}
+.syllabus-level{
+  cursor:pointer;
+}
+.syllabus-level:hover{
+  font-size: larger;
+  color:brown;
+  background-color: azure;
+}
+.highlighted {
+    font-size: medium;
+    color: beige !important;
+    background-color: darkblue;
+    padding: 4px;
+    border-radius: 4px;
+}
+span.student_detail_header {
+    font-size: larger;
+    font-weight: 600;
+    background-color: antiquewhite;
+    padding: 4px;
+    border-radius: 4px;
+}
+span.student_info_item {
+    font-style: oblique;
+    font-weight: 600;
+    background-color: #efe6e6;
+    color: #2f2626;
+    padding: 4px;
+    border-radius: 4px;
+}
+.group_name {
+    font-style: italic;
+    font-size: larger;
+    font-weight: 600;
+    background-color: #efe6e6;
+    padding: 6px;
+    border-radius: 4px;
+}
+.aft_list_selected{
+  color: green;
+    font-size: larger;
+    background-color: aquamarine;
+}
+.aft_list_item:hover {
+    color: green;
+    font-size: larger;
+    background-color: aquamarine;
+}
+
+.aft_list_item {
+    cursor: pointer;
+}
+.student_header {
+    font-weight: 600;
+    font-style: oblique;
+    background-color: darkkhaki;
+    color: whitesmoke;
+}
+#group_name{
+  display:none;
+}
+.pers_info{
+  float:right;
+}
+#student2,#student3,#student4{
+  display:none;
+}
+
+.topic_discussed{
+  color:red;
+  text-decoration: line-through;
+}
+.assigned{
+  background-color: chartreuse;
+}
+.curr {
+    background-color: 
+    cadetblue;
+}
+.curr_a {
+  color:white;
+}
+#sch_r{
+  padding: 0px;
+  display: none;
+}
+div#schedule_list_div {
+    max-height: 140px;
+    overflow-x: scroll;
+}
+#myschedule th td {
+    text-align: center;
+}
+.abs {
+  /*text-align:center;*/
+  background-color:pink;
+}
+.prst {
+  /*text-align:center;*/
+  background-color:#98FB98;
+}
+span.req {
+    font-size: xx-small;
+    font-weight: 800;
+}
+#myschedule a:hover {
+    text-decoration: none;
+  color:white;
+  background-color: darkslategrey;
+}
+#myschedule a {
+    color: black;
+    text-decoration: none;
+}
+#fsp_tab{
+  display: none;
+}
+#my_tests a{
+  color: black;
+  text-decoration: none;
+}
+
+#my_tests a:hover {
+    color: grey;
+}
+#test_div{
+  display: none;
+}
+span.ffb {
+  padding:2px;
+  margin: auto;
+}
+/* chat */
+#show_chat::-webkit-scrollbar {
+  width:12px
+}
+#show_chat::-webkit-scrollbar-track{
+  box-shadow:inset 0 0 5px grey
+}
+#show_chat::-webkit-scrollbar-thumb{
+  background:#98eacc;border-radius:5px
+}
+span#show_notification {
+  position: fixed;
+  right: 12px;
+  bottom: 20px;
+}
+#close_chat_window {
+    float: right;
+  cursor: pointer;
+}
+#chat_button{
+  position: fixed;
+  right : 10px;
+  bottom: 10px;
+  cursor: pointer;
+}
+#chat_window {
+    display: none;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 2;
+  max-width: 420px;
+    border: #adb5bd 1px solid;
+  
+}
+#chat_window_header {
+    background-color: darkgray;
+    color: white;
+
+}
+#chat_window_footer {
+  background-color: darkgray;
+  padding: 0.5rem;
+}
+#show_chat {
+  background: linear-gradient(to right,#155724,#495057,#383d41);
+}
+span#filename {
+  float: left;
+  font-size: small;
+}
+#file {
+  height: 0.1px;
+  width: 0.1px;
+}
+input#message {
+  height: auto;
+}
+div#show_chat {
+  max-height: 400px;
+  overflow-x: scroll;
+}
+.msg_container{
+  margin-top:auto;
+  margin-bottom:auto;
+  margin-left:10px;
+  border-radius:25px;
+  background-color:#82ccdd;
+  padding:10px;
+  position:relative;
+  min-width:60px
+}
+.msg_container_send{
+  margin-top:auto;
+  margin-bottom:auto;
+  margin-right:10px;
+  border-radius:25px;
+  background-color:#78e08f;
+  padding:10px;
+  position:relative;
+  min-width:60px
+}
+.msg_time{
+  position:absolute;
+  left:0;
+  bottom:-15px;
+  color:rgba(255,255,255,.5);
+  font-size:10px
+}
+.msg_time_send{
+  position:absolute;
+  right:0;
+  bottom:-15px;
+  color:rgba(255,255,255,.5);
+  font-size:10px
+}
+.msg_head{
+  position:relative
+}
+.msg_card_body{
+  overflow-y:auto
+}
+.user_img{
+  height:70px;
+  width:70px;
+  border:1.5px solid #f5f6fa
+}
+.user_img_msg{
+  height:40px;
+  width:40px;
+  border:1.5px solid #f5f6fa
+}
+#scroll_chat_content{
+  cursor: pointer;
+}
+#atch_btn, #atch_label {
+    cursor: pointer;
+    margin: auto; 
+}
+#btn_upload {
+  cursor: pointer;
+}
+#btn_upload:hover {
+  background-color: darkgrey;
+}
+#atch_btn:hover {
+    background-color: darkgrey;
+}
+span.media-caption {
+    margin: 0px;
+    padding: 0px;
+    font-size: smaller;
+}
+span.message_sender {
+	font-size:smaller;
+	font-weight:700;
+	font-family:serif;
+	background:linear-gradient(45deg,#9c4c4c00,#1da03b);
+	border-radius:4px;float:right
+	}
+span.received_message_sender{
+	font-size:smaller;
+	font-weight:700;
+	font-family:serif;
+	background:linear-gradient(45deg,#199c9a,#9c4c4c00);
+	border-radius:4px;float:left
+	}
+/* end chat */ 
+/* document */
+.navbar{
+  margin-bottom:20px
+}
+.page-link{
+  position:relative;
+  display:block;
+  padding:.5rem .75rem;
+  margin-left:-1px;
+  line-height:1.25;
+  color:#2780e3;
+  background-color:#fff;
+  border:1px solid #dee2e6;
+  border-radius:12px}
+/* syllabus */
+.syll_section{
+  font-size:24px;
+  font-weight:900;
+  font-family:monospace;
+  color:#1e90ff;
+  background-color:#dcdcdc;
+  border-radius:12px
+} 
+.syll_topic{
+  font-size:18px;
+  font-weight:600;
+  font-family:monospace;
+  background-color:#dcdcdc;
+  border-radius:6px
+}
+.syll_ind{
+  font-family:monospace;
+  font-size:inherit;
+  font-weight:500
+} 
+.schedule-form{
+  width:fit-content
+} 
+div.dataTables_wrapper div.dataTables_filter input{
+  margin-left:.5em;
+  display:inline-block;
+  width:auto;
+  border-radius:15px
+} 
+div.dataTables_wrapper div.dataTables_length select{
+  border-radius:15px
+}
+div.dataTables_wrapper div.dataTables_filter label{
+  font-weight:600;
+  white-space:nowrap;
+  text-align:left;
+  font-family:serif
+}
+div.dataTables_wrapper div.dataTables_length label{
+  font-weight:600;
+  text-align:left;
+  white-space:nowrap;
+  font-family:serif
+} 
+footer.footer{
+  padding-top:5rem;
+  padding-bottom:5rem
+} 
+footer.footer .social-link{
+  display:block;
+  height:4rem;
+  width:4rem;
+  line-height:4.3rem;
+  font-size:1.5rem;
+  background-color:#1d809f;
+  transition:background-color .15s ease-in-out;
+  box-shadow:0 3px 3px 0 rgba(0,0,0,.1)
+}
+footer.footer .social-link:hover{
+  background-color:#155d74;
+  text-decoration:none
+}
+.page-item.active .page-link {
+  z-index: -1;
+}

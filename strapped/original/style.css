@@ -1,0 +1,75 @@
+.btn-primary {
+  background: #313461;
+  border-color: #313461;
+}
+.btn-default{
+  background-color: #ddd;
+}
+.btn-default:hover{
+  background-color: darkgray;
+}
+.jumbotron {
+  background: #333 url('assets/img/bg.jpg') -400px -200px;
+  color:white;
+  text-align: center;
+  border-bottom: 5px #f4f4f4 solid; 
+}
+.jumbotron-main{
+  padding:0 60px 40px 60px;
+}
+.jumbotron-main h1 {
+  margin-top:60px;
+  margin-bottom: 30px;
+}
+.jumbotron p.lead{
+  font-size: 25px;
+  margin-bottom: 60px
+}
+.jumbotron-sub{
+  padding:0 60px 40px 60px;
+}
+.navbar{
+  margin:0;
+  color:#fff;
+}
+.navbar a {
+  color:#fff;
+  margin-bottom: 3px;
+}
+.navbar a:hover{
+  background: none !important;
+  border-bottom: #fff 3px solid;
+  margin-bottom: 0px;
+}
+.navbar-dark .navbar-nav .active>.nav-link{
+  color:rgba(255,255,255,.5);
+  border-bottom: #fff 3px solid;
+}
+
+.box {
+  text-align: center;
+}
+.box .card{
+  padding:5px;
+}
+.box .fas {
+  font-size: 50px;
+}
+
+.sectionA{
+  background:#313461;
+  color:#fff;
+  text-align: center;
+  padding: 50px;
+  margin-bottom: 30px;
+}
+.sectionA h1{
+  font-size: 50px;
+}
+.img-full{
+  width: 100%;
+}
+.main-footer {
+  background-color: #f5f5f5;
+  padding: 50px;
+}

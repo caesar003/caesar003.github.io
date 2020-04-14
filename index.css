@@ -1,0 +1,70 @@
+@font-face {
+  font-family: 'Montserrat';
+  src:url('assets/Montserrat-Regular.ttf');
+}
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #3f51b536;
+}
+.navbar-brand img {
+  width: 25px;
+  height: auto;
+}
+.jumbotron {
+  background: url('./assets/img/hannah-morgan-ycVFts5Ma4s-unsplash.jpg');
+  background-size: cover;
+  background-position:center center;
+}
+section {
+  padding-top: 68px;
+}
+.jumbotron h1 {
+  margin-top: 80px;
+}
+
+.jumbotron h1, .jumbotron p {
+  color:white;
+  text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+               0px 8px 13px rgba(0,0,0,0.1),
+               0px 18px 22px rgba(0,0,0,0.1);
+}
+/*.jumbotron {
+  padding-top:200px;
+  background: url('./assets/cover.jpg');
+  background-size: cover;
+  background-position:center center;
+  
+}
+.section {
+  margin-top:40px;
+}
+#contactForm {
+    background-color: burlywood;
+    padding: 25px;
+    border-radius: 5px;
+}}*/
+.section-title {
+  text-align: center;
+  padding-bottom: 40px;
+}
+.section-title h1 {
+  color:white;
+  text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+               0px 8px 13px rgba(0,0,0,0.1),
+               0px 18px 22px rgba(0,0,0,0.1);
+}
+ hr {
+  max-width: 65px;
+  border-width: 3px;
+  border-color: #F05F44; 
+  box-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+               0px 8px 13px rgba(0,0,0,0.1),
+               0px 18px 22px rgba(0,0,0,0.1);
+}
+footer {
+  margin-top:40px;
+  background-color: burlywood;
+  height: 78px;
+  border-top-right-radius: 16px;
+  border-top-left-radius: 16px;
+}
