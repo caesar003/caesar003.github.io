@@ -58,3 +58,42 @@ body {
     width: 62px;
     height:auto;
 }
+footer 
+element.style {
+}
+.lead {
+    font-size: 1.25rem;
+    font-weight: 300;
+}
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+user agent stylesheet
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+.text-center {
+    text-align: center!important;
+}
+footer {
+    background-color: #f498b8;
+    color: #f5d9d5;
+    margin-bottom: 0px;
+    height: 80px;
+    margin-top: 10px;
+    margin-right: 15px;
+    margin-left: 15px;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

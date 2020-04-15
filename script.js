@@ -31,6 +31,9 @@
         });
         $('#contactForm').on('submit', function(event){
           event.preventDefault();
+        });
+        /*$('#contactForm').on('submit', function(event){
+          event.preventDefault();
           console.log('submitted');
           //const name = $('#name').val(), email = $('#email').val(), message = $('#message').val();
           const formData = [$('#name').val(), $('#email').val(), $('#message').val() ];
@@ -43,5 +46,5 @@
               console.log(response);
             }
           })
-        })
+        }) */
       });
