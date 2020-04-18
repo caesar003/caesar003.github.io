@@ -58,7 +58,7 @@ $(document).ready(function(){
       displayedImages.push(`
       <div class="col-md-6 col-lg-4 mb-4">
       <div class="card">
-        <img src="img/${img_links[i].link}.jpg" alt="${img_links[i].link}" class="card-img-top">
+        <img src="../assets/img/${img_links[i].link}.jpg" alt="${img_links[i].link}" class="card-img-top">
         <div class="card-body">
           <h5 class="card-title">Title here</h5>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>

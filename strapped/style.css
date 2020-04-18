@@ -9,7 +9,7 @@
   background-color: darkgray;
 }
 .jumbotron {
-  background: #333 url('assets/img/bg.jpg') -400px -200px;
+  background: #333 url('../assets/img/bg.jpg') -400px -200px;
   color:white;
   text-align: center;
   border-bottom: 5px #f4f4f4 solid; 

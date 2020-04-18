@@ -34,7 +34,7 @@ $(document).ready(function(){
     for (let i = 0; i < img_links.length; i++){
       displayedDiv.push(`
       <div class="col-lg-4 col-sm-6">
-        <img class="img-fluid img-thumbnail" src="img/${img_links[i].link}.jpg">
+        <img class="img-fluid img-thumbnail" src="../assets/img/${img_links[i].link}.jpg">
       </div>
       `)
     }

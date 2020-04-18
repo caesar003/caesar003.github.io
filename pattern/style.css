@@ -1,6 +1,6 @@
 /* pattern/style.css */
 #header {
-    background: url('paper.gif');
+    background: url('../assets/img/paper.gif');
     color:white;
 }
 #header h1, #header p{
