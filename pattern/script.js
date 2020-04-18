@@ -72,4 +72,8 @@ $(document).ready(function(){
     $('#main-content').html(displayedImages);
   }
   renderImage();
+  // $('#main-content').on('mouseup', '.img-thumb', function(){
+  //   $(this).zoom();
+  // });
+  $('.card').zoom();
 })
