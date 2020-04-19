@@ -49,6 +49,12 @@ $(document).ready(function(){
       title : "Carousel",
       link : "carousel",
       description : "Provide a compact view for bunch of your product in a single page. ",
+    },
+    {
+      image: "blog.png",
+      title : "Blog post",
+      link : "blog",
+      description : "It is for the blog post"
     }
   ];
   const renderCards = () => {

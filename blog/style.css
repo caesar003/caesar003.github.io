@@ -1,0 +1,55 @@
+@font-face {
+  src: url('../assets/font/Sacramento-Regular.ttf');
+  font-family: "Sacramento";
+}
+body {
+  font-family: courier, sans-serif;
+  background:
+  radial-gradient(circle at 100% 50%, transparent 20%, rgba(255,255,255,.3) 21%, rgba(255,255,255,.3) 34%, transparent 35%, transparent),
+  radial-gradient(circle at 0% 50%, transparent 20%, rgba(255,255,255,.3) 21%, rgba(255,255,255,.3) 34%, transparent 35%, transparent) 0 -50px;
+  background-color: slategray;
+  background-size:75px 100px;
+  color:white;
+}
+#page-title {
+  font-family: "Sacramento", courier, sans-serif;
+  font-weight: bold;
+  color:white;
+  text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+               0px 8px 13px rgba(0,0,0,0.1),
+               0px 18px 22px rgba(0,0,0,0.1);
+}
+#cover .cover-thumb {
+  min-height: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  color:gray;
+  text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+               0px 8px 13px rgba(0,0,0,0.1),
+               0px 18px 22px rgba(0,0,0,0.1);
+}
+#cover-thumb-1{
+  background: url('../assets/img/Definitive_Light_Zen_Orange_by_Pierre_Cante.jpg');
+}
+#cover-thumb-2{
+  background: url('../assets/img/Encounter_by_Lazardjin.jpg');
+}
+#cover-thumb-3{
+  background: url('../assets/img/Spring_Flowers_by_MK4-MI01.jpg');
+}
+#cover-thumb-4{
+  background: url('../assets/img/Sunset_of_Peloponnesus_by_Simos_Xenitellis.jpg');
+}
+#cover .row .cover-thumb {
+  background-size: cover;
+
+}
+.cover-post-tag {
+  font-size : smaller;
+  padding-bottom: 5px;
+}
+footer {
+  height: 80px;
+}
