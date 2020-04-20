@@ -2,9 +2,14 @@
   font-family: 'Montserrat';
   src:url('assets/font/Montserrat-Regular.ttf');
 }
+@font-face {
+  src: url('./assets/font/BrushScript-Italic.ttf');
+  font-family: 'BrushScript';
+}
 body {
   font-family: 'Montserrat', sans-serif;
-  background-color: #3f51b536;
+  background: #3f51b536;
+  background: linear-gradient(45deg,#3f51b536,#494f7185);
 }
 .navbar-brand img {
   width: 25px;
@@ -15,6 +20,24 @@ body {
   background-size: cover;
   background-position:center center;
 }
+#cover h1, #cover p {
+  font-family: "BrushScript", sans-serif;
+}
+#cover h1 {
+      font-size: 5rem;
+}
+#cover p {
+      font-size: 3rem;
+}
+.bshd {
+  box-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+               0px 8px 13px rgba(0,0,0,0.1),
+               0px 18px 22px rgba(0,0,0,0.1);
+}
+.form-contact-wrapper{
+  background-color: transparent;
+}
+
 section {
   padding-top: 68px;
 }
@@ -37,21 +60,6 @@ section {
   opacity: 0.4;
   cursor: pointer;
 }
-/*.jumbotron {
-  padding-top:200px;
-  background: url('./assets/cover.jpg');
-  background-size: cover;
-  background-position:center center;
-  
-}
-.section {
-  margin-top:40px;
-}
-#contactForm {
-    background-color: burlywood;
-    padding: 25px;
-    border-radius: 5px;
-}}*/
 .section-title {
   text-align: center;
   padding-bottom: 40px;
@@ -65,7 +73,7 @@ section {
  hr {
   max-width: 65px;
   border-width: 3px;
-  border-color: #F05F44; 
+  border-color: #F05F44;
   box-shadow: 0px 4px 3px rgba(0,0,0,0.4),
                0px 8px 13px rgba(0,0,0,0.1),
                0px 18px 22px rgba(0,0,0,0.1);
