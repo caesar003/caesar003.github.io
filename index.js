@@ -24,13 +24,13 @@ $(document).ready(function(){
       image : "museum_of_candy.jpg",
       title : "Museum of Candy",
       link : "museum_of_candy",
-      description : "Single page two-column website, for those who need several paragraphs but still want to images to stand out.",
+      description : "Single page two-column website, for those who need several paragraphs but still want the images to stand out.",
     },
     {
       image : "landing_page1.jpg",
       title : "Landing Page",
       link : "landing_page",
-      description : "The first impression you want visitors to see once they come accross your site.",
+      description : "The first impression you want visitors to see once they come across your site.",
     },
     {
       image : "landing_page2.jpg",
@@ -54,7 +54,7 @@ $(document).ready(function(){
       image: "blog.jpg",
       title : "Blog post",
       link : "blog",
-      description : "Simple blog post which worth considering for those who like writing and sharing ideas about particular subject such as food and travelling."
+      description : "Aimple blog post template which is worth considering for those who like writing and sharing ideas about particular subject such as food and travelling."
     }
   ];
   const renderCards = () => {
