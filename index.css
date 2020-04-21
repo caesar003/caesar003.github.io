@@ -20,15 +20,13 @@ body {
   background-size: cover;
   background-position:center center;
 }
-#cover h1, #cover p {
+#cover h1 {
   font-family: "BrushScript", sans-serif;
 }
 #cover h1 {
       font-size: 5rem;
 }
-#cover p {
-      font-size: 3rem;
-}
+
 .bshd {
   box-shadow: 0px 4px 3px rgba(0,0,0,0.4),
                0px 8px 13px rgba(0,0,0,0.1),
@@ -45,8 +43,8 @@ section {
   margin-top: 80px;
 }
 
-.jumbotron h1, .jumbotron p {
-  color:white;
+.tshd {
+  color:cornsilk;
   text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
                0px 8px 13px rgba(0,0,0,0.1),
                0px 18px 22px rgba(0,0,0,0.1);
