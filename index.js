@@ -12,7 +12,7 @@ $(document).ready(function(){
       image : "strapped.jpg",
       title : "Strapped",
       link : "strapped",
-      description : "Multi pages profile website is good option once you need to separate your content into different pages.",
+      description : "Multi pages profile website is a good option once you need to separate your content into different pages.",
     },
     {
       image : "pattern.jpg",
@@ -54,7 +54,7 @@ $(document).ready(function(){
       image: "blog.jpg",
       title : "Blog post",
       link : "blog",
-      description : "Aimple blog post template which is worth considering for those who like writing and sharing ideas about particular subject such as food and travelling."
+      description : "A simple blog post template which is worth considering for those who like writing and sharing ideas about particular subject such as food and travelling."
     }
   ];
   const renderCards = () => {
