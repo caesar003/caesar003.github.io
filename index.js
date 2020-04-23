@@ -48,7 +48,7 @@ $(document).ready(function(){
       image : "carousel.jpg",
       title : "Carousel",
       link : "carousel",
-      description : "Provide a compact view for bunch of your product in a single page. ",
+      description : "Provide a compact view for bunch of your products and services in a single page. ",
     },
     {
       image: "blog.jpg",
