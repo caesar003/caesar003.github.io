@@ -4,7 +4,7 @@ const renderProduct = (data=products) => {
     rows.push(`
       <tr>
         <td>${data[i][0]}</td>
-        <td>${data[i][1]}</td>
+        <td class="left">${data[i][1]}</td>
         <td>${formatIDR(data[i][2])}</td>
         <td>
           <a title="remove item" class="btn btn-danger btn-sm deleteProductBtn" href="javascript:void(0);" data-id="${i}">

@@ -6,8 +6,8 @@ const renderEmployees = () => {
     rows.push(
       `<tr class="${paid?'paid':''}">
         <td>${id}</td>
-        <td>${name}</td>
-        <td>${dept}</td>
+        <td class="left">${name}</td>
+        <td class="left">${dept}</td>
         <td>${day}</td>
         <td>${formatIDR(salary)}</td>
         <td>${formatIDR(food)}</td>
