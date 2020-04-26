@@ -1,109 +1,78 @@
 $(document).ready(function(){
-  const posts = [
-    {
-      title : "Post title 2019-09-22",
-      content : "the quick brown fox jumps over the lazy dog",
-      posted_date : "2019-09-22",
-      month : "September",
-      year : 2020,
-    },
-    {
-      title : "Post title 2019-09-15",
-      content : "the quick brown fox jumps over the lazy dog",
-      posted_date : "2019-09-15",
-      month : "September",
-      year : 2020,
-    },
-    {
-      title : "Post title 2 2019-08-12",
-      content : "the quick brown fox jumps over the lazy dog",
-      posted_date : "2019-08-12",
-      month : "August",
-      year : 2020,
-    },
-    {
-      title : "Post title 3",
-      content : "the quick brown fox jumps over the lazy dog",
-      posted_date : "2019-07-18",
-      month : "July",
-      year : 2020,
-    },
-    {
-      title : "Post title 4 2020-05-10",
-      content : "the quick brown fox jumps over the lazy dog",
-      posted_date : "2020-05-10",
-      month : "May",
-      year : 2020,
-    },
-    {
-      title : "Post title 5",
-      content : "the quick brown fox jumps over the lazy dog",
-      posted_date : "2019-08-10",
-      month : "August",
-      year : 2019,
-    },
-    {
-      title : "Post title 5",
-      content : "the quick brown fox jumps over the lazy dog",
-      posted_date : "2019-07-10",
-      month : "July",
-      year : 2019,
-    },
-    {
-      title : "Post title 5",
-      content : "the quick brown fox jumps over the lazy dog",
-      posted_date : "2019-06-10",
-      month : "June",
-      year : 2019,
-    },
-    {
-      title : "Post title 5",
-      content : "the quick brown fox jumps over the lazy dog",
-      posted_date : "2019-05-10",
-      month : "May",
-      year : 2019,
-    },
-    {
-      title : "Post title 5",
-      content : "the quick brown fox jumps over the lazy dog",
-      posted_date : "2018-08-10",
-      month : "August",
-      year : 2018,
-    },
-    {
-      title : "Post title 5",
-      content : "the quick brown fox jumps over the lazy dog",
-      posted_date : "2018-07-10",
-      month : "July",
-      year : 2018,
-    },
-    {
-      title : "Post title 5",
-      content : "the quick brown fox jumps over the lazy dog",
-      posted_date : "2018-06-10",
-      month : "June",
-      year : 2018,
-    },
-    {
-      title : "Post title 5",
-      content : "the quick brown fox jumps over the lazy dog",
-      posted_date : "2018-05-10",
-      month : "May",
-      year : 2018,
-    },
-    {
-      title : "Post title 5",
-      content : "the quick brown fox jumps over the lazy dog",
-      posted_date : "2018-04-10",
-      month : "April",
-      year : 2018,
-    },
-  ];
+  const getAllYears = () => {
+    const allYears = [];
+    for (let i=0; i<posts.length; i++){
+      allYears.push(getYear(posts[i].posted_date));
+    }
+    const sortedYears = [...new Set(allYears)].sort();
+    return sortedYears;
+  }
+  const getYear = (d) => {
+    return new Date(d).getFullYear();
+  }
+  const getMonth = (d) => {
+    const Months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    const month = new Date(d).getMonth();
+    return Months[month];
+  }
+  const renderCover = () => {
+    let renderedCovers = '';
+    for (let i=0; i<4; i++){
+      const {title, image_link, content, tag} = posts[i];
+      renderedCovers += `
+      <div class="col-6 col-md-3 cover-thumb" style="background:url('../assets/img/${image_link}.jpg');">
+        <h3>${title}</h3>
+        <p>${content.substr(0, 18)} ... </p>
+        <div class="cover-post-tag">
+          <i class="fas fa-tag fa-fw"></i>${tag}
+        </div>
+      </div>`;
+    }
+    $('#covers').html(renderedCovers);
+  }
+  const renderPosts = (n=0) => {
+    let renderedPosts = '';
+    for(let i = 0; i < posts.length; i++){
+      const {title, content, posted_date, image_link} = posts[i];
+      if(i % 2 !== 0){
+        renderedPosts += `
+        <div>
+          <h3 class="text-left mb-0">${title}</h3>
+          <p class="postedDate">${posted_date}</p>
+          <hr>
+          <div class="row mb-5">
+            <div class="col-md-8  blog-content">
+              <p>${content.substr(0, 120)} ... <a href="#">Read more <i class="fas fa-angle-double-right"></i> </a></p>
+            </div>
+            <div class="col-md-4 d-flex align-items-start justify-content-center mb-3">
+              <img class="img-fluid" src="../assets/img/${image_link}.jpg" alt="${image_link}" />
+            </div>
+          </div>
+        </div>`;
+      } else {
+        renderedPosts += `
+        <div>
+          <h3 class="text-left mb-0">${title}</h3>
+          <p class="postedDate">${posted_date}</p>
+          <hr>
+          <div class="row mb-5">
+            <div class="col-md-4 d-flex align-items-start justify-content-center">
+              <img class="img-fluid" src="../assets/img/${image_link}.jpg" alt="${image_link}" />
+            </div>
+            <div class="col-md-8  blog-content">
+              <p>${content.substr(0, 120)} ... <a href="#">Read more <i class="fas fa-angle-double-right"></i> </a> </p>
+            </div>
+          </div>
+        </div>`;
+      }
+    }
+    $('#recentPosts').html(renderedPosts);
+  }
 
   const filterPosts = (year, month) => {
     const filteredPosts = [];
     for (let i = 0; i<posts.length; i++){
-      if(posts[i].year==year&&posts[i].month==month){
+      if(getYear(posts[i].posted_date) == year && getMonth(posts[i].posted_date) == month){
         filteredPosts.push(posts[i].title);
       }
     }
@@ -113,8 +82,8 @@ $(document).ready(function(){
   const filterMonths = (year) => {
     const months = [];
     for(let i = 0; i<posts.length; i++){
-      if(posts[i].year == year){
-        months.push(posts[i].month);
+      if(getYear(posts[i].posted_date) == year){
+        months.push(getMonth(posts[i].posted_date));
       }
     }
     const filteredMonths = [...new Set(months)];
@@ -122,11 +91,7 @@ $(document).ready(function(){
   }
 
   const renderSideBar = () => {
-    const allYears = [];
-    for (let i=0; i<posts.length; i++){
-      allYears.push(posts[i].year);
-    }
-    const filteredYears = [...new Set(allYears)];
+    filteredYears = getAllYears();
     let allPosts = '';
     for(let i = 0; i < filteredYears.length; i ++){
       let months = filterMonths(filteredYears[i]);
@@ -150,6 +115,10 @@ $(document).ready(function(){
         </details>`
     }
     $('#allposts').html(allPosts);
+    console.log(filteredYears);
+    console.log(filteredYears.sort());
   }
+  renderCover()
+  renderPosts();
   renderSideBar();
 });
