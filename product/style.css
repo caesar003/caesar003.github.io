@@ -1,0 +1,15 @@
+.feedback {
+  background-color: pink;
+  padding: 5px;
+  border-radius: 4px;
+}
+.paid {
+  text-decoration: line-through;
+}
+.done{
+  text-decoration: line-through;
+}
+.todoItem:hover {
+  cursor:pointer;
+  color: darkgray;
+}
