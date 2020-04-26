@@ -4,6 +4,28 @@ const products = [
   [3938, "Minyak telon Konicare 60ml", 12000],
   [8984, "Balsem Lang 35g", 9730]
 ];
+const productObj = [
+  {
+    id : 1890,
+    name : "Rexona Men roll on",
+    price : 16800,
+  },
+  {
+    id : 8762,
+    name : "Charm Body Fit wings 12s",
+    price : 14200,
+  },
+  {
+    id : 3938,
+    name : "Minyak telon Konicare 60ml",
+    price : 12000,
+  },
+  {
+    id : 8984,
+    name : "Balsem Lang 35g",
+    price : 9730,
+  },
+]
 const employees = [
   {
     id : 2736,
