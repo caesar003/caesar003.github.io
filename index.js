@@ -55,6 +55,12 @@ $(document).ready(function(){
       title : "Blog post",
       link : "blog",
       description : "A simple blog post template which is worth considering for those who like writing and sharing ideas about particular subject such as food and travelling."
+    },
+    {
+      image : "blog.jpg",
+      title : "salary",
+      link : "product",
+      description : "Need a web application to manage things you deal with? You probably want to check this one up!"
     }
   ];
   const renderCards = () => {
