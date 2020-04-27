@@ -209,7 +209,7 @@ $(document).ready(function(){
       'paging': false,
       'info' : false,
       'ajax': {
-        'url' : 'http://localhost/github_port/library/books.json',
+        'url' : './books.json',
         'dataSrc' : ""
       },
       "columns" : [
