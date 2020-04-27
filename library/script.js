@@ -276,7 +276,6 @@ $(document).ready(function(){
     const el = $('#cover').find(`.index_${i}`);
     el.siblings().removeClass('active');
     el.addClass('active');
-    console.log(i)
   }
   $('#cover').on('click', '.cover', function(){
     const index = $(this).data('index');

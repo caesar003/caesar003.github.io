@@ -1,8 +1,27 @@
+@font-face {
+    src : url('../assets/font/Courgette-Regular.ttf');
+    font-family: 'Courgette';
+}
 body {
   max-height: 100vh;
 }
+#title-header {
+  font-family: 'Courgette';
+  text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+               0px 8px 13px rgba(0,0,0,0.1),
+               0px 18px 22px rgba(0,0,0,0.1);
+}
 th {
   text-align: center;
+
+}
+hr {
+
+  border-width: 2px;
+  border-color: #ddd;
+  box-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+               0px 8px 13px rgba(0,0,0,0.1),
+               0px 18px 22px rgba(0,0,0,0.1);
 }
 
 div.dataTables_wrapper div.dataTables_filter {
@@ -31,6 +50,7 @@ div.dataTables_wrapper div.dataTables_filter {
  #cover {
    overflow-x: scroll;
    height: 360px;
+   background: aliceblue;
  }
  img.cover{
    margin-left: 5px;
@@ -43,14 +63,7 @@ div.dataTables_wrapper div.dataTables_filter {
                 0px 8px 13px rgba(0,0,0,0.1),
                 0px 18px 22px rgba(0,0,0,0.1);
  }
- /* #cover {
-   height: 360px;
-   overflow: scroll;
- } */
- /* img.cover {
-   height: 80%;
- } */
- /* .active {
-   width: 250px;
-   height: auto;
- } */
+
+  table {
+    font-size: 0.9rem;
+  }
