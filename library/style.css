@@ -1,0 +1,56 @@
+body {
+  max-height: 100vh;
+}
+th {
+  text-align: center;
+}
+
+div.dataTables_wrapper div.dataTables_filter {
+    display: flex;
+    text-align: left;
+    position: fixed;
+    bottom: 15px;
+    left: 15px;
+    width: 400px;
+}
+ div#books_filter input {
+   width: 100%;
+ }
+ #booklist {
+   max-height: 450px;
+   overflow-y: scroll;
+ }
+ .nav-item:hover {
+   cursor:pointer;
+   color: grey;
+ }
+ .book-title:hover {
+   cursor: pointer;
+   color: grey;
+ }
+ #cover {
+   overflow-x: scroll;
+   height: 360px;
+ }
+ img.cover{
+   margin-left: 5px;
+   margin-right: 5px;
+ }
+ .active {
+   width: 160px;
+   border-bottom: 1px solid grey;
+   box-shadow: 0px 4px 3px rgba(0,0,0,0.4),
+                0px 8px 13px rgba(0,0,0,0.1),
+                0px 18px 22px rgba(0,0,0,0.1);
+ }
+ /* #cover {
+   height: 360px;
+   overflow: scroll;
+ } */
+ /* img.cover {
+   height: 80%;
+ } */
+ /* .active {
+   width: 250px;
+   height: auto;
+ } */

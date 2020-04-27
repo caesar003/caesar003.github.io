@@ -58,9 +58,15 @@ $(document).ready(function(){
     },
     {
       image : "product.png",
-      title : "salary",
+      title : "Salary",
       link : "product",
       description : "Need a web application to manage things you deal with? You probably want to check this one up!"
+    },
+    {
+      image : "library.png",
+      title : "Library",
+      link : "library",
+      description : "A simple web app containing collection of books"
     }
   ];
   const renderCards = () => {
