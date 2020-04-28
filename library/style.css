@@ -24,16 +24,19 @@ hr {
                0px 18px 22px rgba(0,0,0,0.1);
 }
 
-div.dataTables_wrapper div.dataTables_filter {
+/* div.dataTables_wrapper div.dataTables_filter {
     display: flex;
     text-align: left;
     position: fixed;
     bottom: 15px;
     left: 15px;
     width: 400px;
-}
+} */
  div#books_filter input {
-   width: 100%;
+   width: 0.01px;
+   height: 0.01px;
+   padding: 0px;
+   margin: 0px;
  }
  #booklist {
    max-height: 450px;
@@ -56,7 +59,7 @@ div.dataTables_wrapper div.dataTables_filter {
    margin-left: 5px;
    margin-right: 5px;
  }
- .active {
+ .cover.active {
    width: 160px;
    border-bottom: 1px solid grey;
    box-shadow: 0px 4px 3px rgba(0,0,0,0.4),
@@ -67,3 +70,31 @@ div.dataTables_wrapper div.dataTables_filter {
   table {
     font-size: 0.9rem;
   }
+
+  details {
+  font: 16px "Open Sans", "Arial", sans-serif;
+  width: 620px;
+}
+/* 
+details > summary {
+  padding: 2px 6px;
+  width: 15em;
+  background-color: #ddd;
+  border: none;
+  /* box-shadow: 1px 1px 12px black; */
+}
+
+details > li {
+  border-radius: 0 0 10px 10px;
+  background-color: #ddd;
+  padding: 2px 6px;
+  margin: 0;
+  /* box-shadow: 1px 1px 8px black; */
+} */
+/* details ul {
+  border-radius: 0 0 10px 10px;
+  background-color: #ddd;
+  padding: 2px 6px;
+  margin: 0;
+  box-shadow: 3px 3px 4px black;
+} */

@@ -145,6 +145,7 @@ $(document).ready(function(){
     });
   $('#nav').on('click', '.nav-item', function(){
     const item = $(this).data('item');
+    $('#search-books').val(item);
     myBookList.search(item).draw();
   });
   const getCovers = () => {
@@ -197,7 +198,12 @@ $(document).ready(function(){
     readBook(path);
   });
   $('#search-books').on('keyup', function(e){
+    e.preventDefault();
     const item = $(this).val();
     myBookList.search(item).draw();
+    //console.log(e);
   });
+  $('#search-books').on('search', function(e){
+    myBookList.search('').draw();
+  })
 });
