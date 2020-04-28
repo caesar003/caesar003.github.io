@@ -12,84 +12,61 @@ $(document).ready(function(){
       }
     });
   }
-  const getAlphabet = (arg) => {
-    const allNames = [];
-    const allAlph = [];
-    for(let i = 0; i< Books.length;i++){
-      arg === 'author'?
-      allNames.push(Books[i].author)
-      : allNames.push(Books[i].tags);
-    }
-    for(let j = 0; j< allNames.length; j++){
-      allAlph.push(allNames[j][0]);
-    }
-    const Alphabet = [...new Set(allAlph)].sort();
-    return Alphabet;
-  }
-
-  const getAuthors = (letter) => {
-    const allAuthors = [];
+  const Categories = ["Authors", "Tags"];
+  const getLetters = (cat) => {
+    const allLetters = [];
     for(let i=0; i<Books.length; i++){
-      if(Books[i].author[0].toLowerCase()===letter.toLowerCase()){
-        allAuthors.push(Books[i].author);
+      if(cat.toLowerCase() ==='authors'){
+        allLetters.push(Books[i].author[0]);
+      } else {
+        allLetters.push(Books[i].tags[0]);
       }
     }
-    const Authors = [...new Set(allAuthors)].sort();
-    return Authors;
+    const Letters = [...new Set(allLetters)].sort();
+    return Letters;
   }
-  const getTags = (letter) => {
-    const allTags = [];
+  const getItems = (cat, letter) => {
+    const allItems = [];
     for(let i=0; i<Books.length; i++){
-      if(Books[i].tags[0].toLowerCase()===letter.toLowerCase()){
-        allTags.push(Books[i].tags);
+      if(cat === 'Authors'){
+        if(Books[i].author[0].toLowerCase() === letter.toLowerCase()){
+          allItems.push(Books[i].author);
+        }
+      } else {
+        if(Books[i].tags[0].toLowerCase() === letter){
+          allItems.push(Books[i].tags);
+        }
       }
     }
-    const Tags = [...new Set(allTags)].sort();
-    return Tags;
+    Items = [...new Set(allItems)].sort();
+    return Items;
   }
-
   const getNav = () => {
-    const allAuthors = getAlphabet('author');
-    const allTags = getAlphabet();
-    let renderedNav =
+    let returned = '';
+    for(let i=0; i<Categories.length; i++){
+      const Letters = getLetters(Categories[i]);
+      returned +=
       `<details>
-        <summary>Authors</summary>
+        <summary>${Categories[i]}</summary>
         <ul>`;
-        for(let i=0; i<allAuthors.length; i++){
-          const authors = getAuthors(allAuthors[i]);
-          renderedNav +=
+        for(let j=0;j<Letters.length;j++){
+          const Items = getItems(Categories[i], Letters[j]);
+          returned +=
             `<details>
-              <summary>${allAuthors[i]}</summary>
-              <ul>`
-              for (let j=0; j<authors.length; j++){
-                renderedNav += `<li class="nav-item" data-item="${authors[j]}">${authors[j]}</li>`
+              <summary>${Letters[j]}</summary>
+              <ul>`;
+              for(let k=0; k<Items.length; k++){
+                returned += `<li class="nav-item" data-item="${Items[k]}">${Items[k]}</li>`;
               }
-              renderedNav += `</ul>
-            </details>`
+              returned += `</ul>
+            </details>`;
         }
-        renderedNav+=
-        `</ul>
-      </details>
-      <details>
-        <summary>Tags</summary>
-        <ul>`;
-        for(let k = 0; k<allTags.length; k++){
-          const tags = getTags(allTags[k]);
-          renderedNav +=
-          `<details>
-            <summary>${allTags[k]}</summary>
-            <ul>`;
-              for(let l = 0; l< tags.length; l++){
-                renderedNav += `<li class="nav-item" data-item="${tags[l]}">${tags[l]}</li>`
-              }
-            renderedNav+=`</ul>
-          </details>`
-        }
-        renderedNav+= `</ul>
-      </details>`;
-    $('#nav').html(renderedNav);
+          returned +=
+          `</ul>
+      </details>`
+    }
+    $('#nav').html(returned);
   }
-
   const myBookList =  $('#books').DataTable({
     'language' : {
       'search' : "_INPUT_",
@@ -163,10 +140,9 @@ $(document).ready(function(){
     const Title =
     `<p class="lead"><a href="books/${author}/${title}.pdf" class="btn btn-success btn-sm"><i class="fas fa-book-open"></i> Read</a> ${title} - ${author}</p>`;
     $('#book-title').html(Title);
-    console.log('worked');
   }
   const scrollCover = (n) => {
-    $('#cover').animate({scrollLeft:Number(n)*100}, 200);
+    $('#cover').animate({scrollLeft:Number(n)*129}, 200);
   }
   const giveClass = (i) => {
     const el = $('#cover').find(`.index_${i}`);
