@@ -143,7 +143,10 @@ $(document).ready(function(){
 
   const getCovers = () => {
     let p = '';
+    let Title = '';
+    let Author = '';
     for (let i = 0; i< Books.length; i++){
+      if(i===0){Title=Books[i].title;Author=Books[i].author}
       p+= `<img
         class="cover ${i===0?'active':''} index_${i}"
         data-title="${Books[i].title}"
@@ -154,6 +157,13 @@ $(document).ready(function(){
       `;
     }
     $('#cover').html(p);
+    showTitle(Title, Author);
+  }
+  const showTitle = (title, author) => {
+    const Title =
+    `<p class="lead"><a href="books/${author}/${title}.pdf" class="btn btn-success btn-sm"><i class="fas fa-book-open"></i> Read</a> ${title} - ${author}</p>`;
+    $('#book-title').html(Title);
+    console.log('worked');
   }
   const scrollCover = (n) => {
     $('#cover').animate({scrollLeft:Number(n)*100}, 200);
@@ -170,6 +180,9 @@ $(document).ready(function(){
 
   $('#cover').on('click', '.cover', function(){
     const index = $(this).data('index');
+    const title = $(this).data('title');
+    const author = $(this).data('author');
+    showTitle(title, author);
     scrollCover(index);
     giveClass(index);
   });
@@ -182,6 +195,9 @@ $(document).ready(function(){
 
   $('#books').on('click', '.book-title', function(){
     const id = $(this).data('id');
+    const title = $(this).data('title');
+    const author = $(this).data('author');
+    showTitle(title, author);
     scrollCover(id);
     giveClass(id);
   });

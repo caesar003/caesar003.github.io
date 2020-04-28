@@ -12,7 +12,7 @@
   <body>
     <nav class="navbar navbar-expand-md navbar-light bg-light">
       <div class="container">
-        <a class="navbar-brand" href="#"><i class="fas fa-book"></i> Library</a>
+        <a style="cursor:pointer;" class="navbar-brand"><i class="fas fa-book"></i> Library</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -55,7 +55,12 @@
         <div class="col-md-3" id="nav">
         </div>
         <div class="col-md-9">
-          <div class="container d-flex align-items-center" id="cover">
+          <div class="container">
+            <div class="container d-flex align-items-center" id="cover">
+            </div>
+            <div id="book-title" class="px-2 py-2">
+              <h5>Some text</h5>
+            </div>
           </div>
           <div class="container-fluid" id="booklist">
             <table class="table table-sm table-striped table-bordered" id="books">
