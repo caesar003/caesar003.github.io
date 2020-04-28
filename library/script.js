@@ -12,8 +12,6 @@ $(document).ready(function(){
       }
     });
   }
-  fetchDb();
-
   const getAlphabet = (arg) => {
     const allNames = [];
     const allAlph = [];
@@ -57,7 +55,7 @@ $(document).ready(function(){
       `<details>
         <summary>Authors</summary>
         <ul>`;
-        for(let i = 0; i< allAuthors.length; i++){
+        for(let i=0; i<allAuthors.length; i++){
           const authors = getAuthors(allAuthors[i]);
           renderedNav +=
             `<details>
@@ -91,63 +89,58 @@ $(document).ready(function(){
       </details>`;
     $('#nav').html(renderedNav);
   }
-  getNav();
 
   const myBookList =  $('#books').DataTable({
-      'language' : {
-        'search' : "_INPUT_",
-        'searchPlaceholder' : 'Find books...'
-      },
-      'paging': false,
-      'info' : false,
-      'ajax': {
-        'url' : './books.json',
-        'dataSrc' : ""
-      },
-      "columns" : [
-        {
-          "data" : {id: "id", title:"title", author:"author"},
-          "render" : function (data, type, row){
-            return `<span class="book-title" data-author="${data.author}" data-title="${data.title}" data-id="${Number(data.id)-1}">${data.id}</span>`
-          }
-        },
-        {
-          "data" : {title:"title", author:"author", id:"id"},
-          "render": function(data,type,row){
-            return `<span class="book-title" data-author="${data.author}" data-title="${data.title}" data-id="${Number(data.id)-1}">${data.title}</span>`
-          }
-        },
-        {
-          "data" : {title:"title", author:"author", id:"id"},
-          "render": function(data,type,row){
-            return `<span class="book-title" data-author="${data.author}" data-title="${data.title}" data-id="${Number(data.id)-1}">${data.author}</span>`
-          }
-        },
-        {
-          "data" : {descr: "descr", title:"title", author:"author", id:"id"},
-          "render" : function(data, type, row){
-            return `<span  class="book-title" data-author="${data.author}" data-title="${data.title}" data-id="${Number(data.id)-1}">${data.descr.length>50?data.descr.substr(0,48):data.descr}</span>`
-          }
-        },
-        {
-          "data" : {tags:"size",title:"title", author:"author", id:"id"},
-          "render" : function(data, type, row){
-            return `<span  class="book-title" data-author="${data.author}" data-title="${data.title}" data-id="${Number(data.id)-1}">${data.size} mb</span>`
-          }
-        },
-        {
-          "data" : {tags:"tags",title:"title", author:"author", id:"id"},
-          "render" : function(data, type, row){
-            return `<span  class="book-title" data-author="${data.author}" data-title="${data.title}" data-id="${Number(data.id)-1}">${data.tags}</span>`
-          }
+    'language' : {
+      'search' : "_INPUT_",
+      'searchPlaceholder' : 'Find books...'
+    },
+    'paging': false,
+    'info' : false,
+    'ajax': {
+      'url' : './books.json',
+      'dataSrc' : ""
+    },
+    "columns" : [
+      {
+        "data" : {id: "id", title:"title", author:"author"},
+        "render" : function (data, type, row){
+          return `<span class="book-title" data-author="${data.author}" data-title="${data.title}" data-id="${Number(data.id)-1}">${data.id}</span>`
         }
-      ]
-    });
-  $('#nav').on('click', '.nav-item', function(){
-    const item = $(this).data('item');
-    $('#search-books').val(item);
-    myBookList.search(item).draw();
+      },
+      {
+        "data" : {title:"title", author:"author", id:"id"},
+        "render": function(data,type,row){
+          return `<span class="book-title" data-author="${data.author}" data-title="${data.title}" data-id="${Number(data.id)-1}">${data.title}</span>`
+        }
+      },
+      {
+        "data" : {title:"title", author:"author", id:"id"},
+        "render": function(data,type,row){
+          return `<span class="book-title" data-author="${data.author}" data-title="${data.title}" data-id="${Number(data.id)-1}">${data.author}</span>`
+        }
+      },
+      {
+        "data" : {descr: "descr", title:"title", author:"author", id:"id"},
+        "render" : function(data, type, row){
+          return `<span  class="book-title" data-author="${data.author}" data-title="${data.title}" data-id="${Number(data.id)-1}">${data.descr.length>50?data.descr.substr(0,48):data.descr}</span>`
+        }
+      },
+      {
+        "data" : {tags:"size",title:"title", author:"author", id:"id"},
+        "render" : function(data, type, row){
+          return `<span  class="book-title" data-author="${data.author}" data-title="${data.title}" data-id="${Number(data.id)-1}">${data.size} mb</span>`
+        }
+      },
+      {
+        "data" : {tags:"tags",title:"title", author:"author", id:"id"},
+        "render" : function(data, type, row){
+          return `<span  class="book-title" data-author="${data.author}" data-title="${data.title}" data-id="${Number(data.id)-1}">${data.tags}</span>`
+        }
+      }
+    ]
   });
+
   const getCovers = () => {
     let p = '';
     for (let i = 0; i< Books.length; i++){
@@ -155,13 +148,13 @@ $(document).ready(function(){
         class="cover ${i===0?'active':''} index_${i}"
         data-title="${Books[i].title}"
         data-author="${Books[i].author}"
-        data-index="${i}" width="120px"
+        data-index="${i}"
+        width="120px"
         src="books/${Books[i].author}/${Books[i].title}.jpg">
       `;
     }
     $('#cover').html(p);
   }
-  getCovers();
   const scrollCover = (n) => {
     $('#cover').animate({scrollLeft:Number(n)*100}, 200);
   }
@@ -170,10 +163,21 @@ $(document).ready(function(){
     el.siblings().removeClass('active');
     el.addClass('active');
   }
+  const readBook = (path) => {
+    const currentPage = location.href;
+    location = currentPage+path;
+  }
+
   $('#cover').on('click', '.cover', function(){
     const index = $(this).data('index');
     scrollCover(index);
     giveClass(index);
+  });
+
+  $('#nav').on('click', '.nav-item', function(){
+    const item = $(this).data('item');
+    $('#search-books').val(item);
+    myBookList.search(item).draw();
   });
 
   $('#books').on('click', '.book-title', function(){
@@ -181,29 +185,32 @@ $(document).ready(function(){
     scrollCover(id);
     giveClass(id);
   });
-  const readBook = (path) => {
-    const currentPage = location.href;
-    location = currentPage+path;
-  }
+
   $('#books').on('dblclick', '.book-title', function(){
     const author = $(this).data('author');
     const title = $(this).data('title');
     const path = `books/${author}/${title}.pdf`
     readBook(path);
   });
+
   $('#cover').on('dblclick', '.cover', function(){
     const author = $(this).data('author');
     const title = $(this).data('title');
     const path = `books/${author}/${title}.pdf`
     readBook(path);
   });
+
   $('#search-books').on('keyup', function(e){
     e.preventDefault();
     const item = $(this).val();
     myBookList.search(item).draw();
-    //console.log(e);
   });
+
   $('#search-books').on('search', function(e){
     myBookList.search('').draw();
-  })
+  });
+
+  fetchDb();
+  getNav();
+  getCovers();
 });
