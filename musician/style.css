@@ -1,0 +1,70 @@
+@font-face {
+  src : url('../assets/font/JosefinSlab-Bold.ttf');
+  font-family: 'JosefinSlab';
+}
+@font-face {
+  src : url('../assets/font/JosefinSlab-Regular.ttf');
+  font-family: 'JosefinSlab';
+}
+@font-face {
+  src : url('../assets/font/Caveat-Bold.ttf');
+  font-family: 'Caveat';
+}
+body {
+  background-color: black;
+  color: white;
+  font-family: 'JosefinSlab';
+}
+
+h1.display-4 {
+  font-weight: 600;
+}
+
+#cover {
+  /* background: url('./img/austin_neill_SLUeuL_mrRg_unsplash.jpg'); */
+  /* background: url('./img/flavio_gasperini_QO0hJHVUVso_unsplash.jpg'); */
+  background: url('./img/gabriel_gurrola_2UuhMZEChdc_unsplash.jpg');
+  /* background: url('./img/jallen_fosati_kX8p3etvVq8_unsplash.jpg'); */
+  /* background: url('./img/jan_strecha_lp4j3sjaocI_unsplash.jpg'); */
+  /* background: url('./img/john_matychuk_gUK3lA3K7Yo_unsplash.jpg'); */
+  /* background: url('./img/melanie_van_leeuwen_QA_qQfWJM0E_unsplash.jpg'); */
+  /* background: url('./img/akshar_dave_sNut2MqSmds_unsplash.jpg'); */
+  background-size: cover;
+}
+
+.card {
+    background: scroll;
+    border: 1px solid grey;
+    color: white;
+    min-height: 240px;
+}
+.card h5 {
+  font-family: 'Caveat';
+  font-size: 1.7rem;
+}
+
+@media(max-width:992px){
+  .navbar-collapse {
+    background: #272222;
+    position: absolute;
+    top:54px;
+    left:-300px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    width: 300px;
+    height: 100vh !important;
+    transition: all 0.3s ease;
+    display: block;
+    z-index: 2;
+  }
+  .navbar-collapse.collapsing {
+    height: 100vh;
+    margin-right: 50%;
+    transition: all 0.3 ease;
+    display: block;
+  }
+  .navbar-collapse.show {
+    left : 0;
+  }
+}

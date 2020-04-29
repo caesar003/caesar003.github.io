@@ -67,6 +67,12 @@ $(document).ready(function(){
       title : "Library",
       link : "library",
       description : "A simple web app containing collection of books"
+    },
+    {
+      image : "musician.png",
+      title : "I'm a Musician",
+      link : "musician",
+      description : "You probably need a place to put information about your upcoming concerts, recent events etc.",
     }
   ];
   const renderCards = () => {
