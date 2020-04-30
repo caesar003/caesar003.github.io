@@ -56,6 +56,7 @@ section {
   /* background-color: transparent; */
   /* border:0px; */
   box-shadow: 10px 5px 5px #3f51b536;
+  min-height: 410px;
 }
 #portfolios .card:hover {
   opacity: 0.4;
