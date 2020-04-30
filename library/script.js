@@ -38,7 +38,7 @@ $(document).ready(function(){
         }
       }
     }
-    Items = [...new Set(allItems)].sort();
+    const Items = [...new Set(allItems)].sort();
     return Items;
   }
   const getNav = () => {
@@ -130,8 +130,7 @@ $(document).ready(function(){
         data-author="${Books[i].author}"
         data-index="${i}"
         width="120px"
-        src="books/${Books[i].author}/${Books[i].title}.jpg">
-      `;
+        src="books/${Books[i].author}/${Books[i].title}.jpg">`;
     }
     $('#cover').html(p);
     showTitle(Title, Author);
