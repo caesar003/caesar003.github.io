@@ -59,7 +59,7 @@ section {
   min-height: 410px;
 }
 #portfolios .card:hover {
-  opacity: 0.4;
+  opacity: 0.7;
   cursor: pointer;
 }
 .section-title {
