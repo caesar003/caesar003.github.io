@@ -1,0 +1,36 @@
+@font-face {
+  font-family: 'Roboto Slab';
+  src: url("../../assets/font/RobotoSlab-Regular.ttf") format("truetype"),
+       url("../../assets/font/RobotoSlab-Bold") format("truetype");
+}
+body {
+  font-family: "Roboto Slab", serif;
+}
+
+.cover {
+  background: url('../placeholder.png');
+}
+
+a.btn.viewmore {
+    color: white;
+    border: 1px solid white;
+}
+a.btn.viewmore:hover {
+    color: black;
+    background-color: white;
+}
+.price {
+    text-decoration: line-through;
+    font-size: smaller;
+    color: red;
+}
+.moreInfo {
+  font-size: smaller;
+}
+.main-footer {
+  background-color: #f5f5f5;
+  padding: 50px;
+}
+footer a {
+  color : black;
+}

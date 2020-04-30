@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+ 		<title>Daftar</title>
+		<link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+		<link rel="stylesheet" href="../assets/fontawesome/css/all.min.css">
+		<!-- <link rel="stylesheet" href="./style.css"> -->
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-md navbar-light bg-light">
+      <div class="container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <!-- <span class="navbar-toggler-icon"></span> -->
+          <span class="fas fa-book"></span>
+        </button>
+        <a class="navbar-brand" href="index.html"><i class="fas fa-book d-none d-md-inline"></i> UniverseLanguage</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+		<div class="jumbotron">
+
+			<div class="row justify-content-center">
+				<div class="col-md-8">
+					<h1>Daftar</h1>
+					<form autocomplete="off" id="register">
+					  <div class="form-group">
+					    <label for="name">Nama</label>
+					    <input type="text" class="form-control" id="name">
+					  </div>
+					  <div class="form-group">
+					    <label for="dateOfBirth">Tanggal lahir</label>
+					    <input autocomplete="off" type="date" class="form-control" id="dateOfBirth">
+					  </div>
+						<div class="form-group">
+					    <label for="phone">Telepon / hp</label>
+					    <input autocomplete="off" type="text" class="form-control" id="phone">
+					  </div>
+						<div class="form-group">
+					    <label for="program">Program </label>
+					    <select class="form-control" id="program" name="program">
+					    	<option>Enhanced Speaking</option>
+								<option>Delightful Grammar</option>
+								<option>Superb Writing</option>
+								<option>TOEFL</option>
+								<option>IELTS </option>
+								<option>Confident Class	</option>
+								<option>Creative English Class</option>
+								<option>Arise with English</option>
+					    </select>
+					  </div>
+						<label>Durasi Program</label>
+						<div class="form-group">
+							<div class="form-check form-check-inline">
+							  <input class="form-check-input" type="radio" name="programDuration" id="eightMonths" value="8">
+							  <label class="form-check-label" for="eightMonths">8 pertemuan / 1 bulan</label>
+							</div>
+							<div class="form-check form-check-inline">
+							  <input class="form-check-input" type="radio" name="programDuration" id="threeMonths" value="25">
+							  <label class="form-check-label" for="threeMonths">25 pertemuan / 3 bulan</label>
+							</div>
+						</div>
+
+					  <button type="submit" class="btn btn-outline-primary">Daftar</button>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<footer class="main-footer">
+			<div class="container">
+				<div class="row justify-content-center align-items-start text-center">
+					<div class="col-8 col-md-4">
+						<h3>Universe Language</h3>
+						<p>Velit aute mollit ipsum ad dolor consectetur nulla officia culpa adipisicing exercitation fugiat tempor. Voluptate deserunt sit sunt</p>
+						<p>Copyright &copy; 2020</p>
+					</div>
+					<div class="col-8 col-md-4">
+						<ul class="list-unstyled">
+							<li><i style="color:white;background:lime;border-radius:50%;" class="fab fa-whatsapp"></i> <a href="https://wa.me/">62877xxx</a></li>
+							<li><i style="color:aquamarine;" class="fab fa-twitter"></i> <a href="#">twitter</a></li>
+							<li><i style="color:pink;" class="fab fa-instagram"></i> <a href="#">instagram</a></li>
+							<li><i style="color:blue;" class="fab fa-facebook"></i> <a href="#">facebook</a></li>
+							<li><i class="fas fa-envelope"></i> <a href="#">email</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<script type="text/javascript" src="../assets/js/jquery-3.4.1.min.js"></script>
+		<script type="text/javascript" src="../assets/js/bootstrap.bundle.min.js"></script>
+		<script type="text/javascript" src="./register.js"></script>
+	</body>
+</html>
