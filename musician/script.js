@@ -39,8 +39,8 @@ const showTickets = () => {
   for(let i=0;i<Schedules.length; i++){
     const {city, tourDate, available} = Schedules[i];
     tickets += `
-      <div class="col-6 col-md-4 col-lg-3">
-        <div class="card" style="width: 15rem;">
+      <div class="col-10 col-sm-6 col-md-3">
+        <div class="card mb-2">
           <div class="card-body d-flex flex-column justify-content-start align-items-center">
             <h5 class="card-title mt-4">${city} </h5>
             <h6 class="card-subtitle mb-2 text-muted">${FormatDate(new Date(tourDate))}</h6>

@@ -1,6 +1,4 @@
 $(document).ready(function(){
-  /* display content */
-
   const images_links = [
     {
       image : "single_carousel.jpg",
@@ -84,9 +82,9 @@ $(document).ready(function(){
            <div class="card" data-link="${link}">
              <img src="assets/img/${image}" alt="${title}" class="card-img-top bshd">
             <div class="card-body">
-              <h5 class="card-title tshd">${title}</h5>
-              <p class="card-text tshd">${description}</p>
-              <a href="${link}" class="btn btn-success btn-sm tshd bshd">See</a>
+              <h5 class="card-title">${title}</h5>
+              <p class="card-text">${description}</p>
+              <a href="${link}" class="btn btn-success btn-sm bshd">See</a>
              </div>
            </div>
          </div>`
