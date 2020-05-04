@@ -1,0 +1,21 @@
+@font-face {
+  src : url('../assets/font/Glamor-Regular.ttf');
+  font-family: 'Glamor';
+}
+body {
+  font-family: 'Glamor';
+  background: url('../assets/img/hannah-morgan-ycVFts5Ma4s-unsplash.jpg');
+  background-position: center center ;
+  background-size: cover;
+}
+#form-wrapper {
+  color:white;
+  padding: 16px;
+  background-color: rgba(0,0,0,0.6);
+  border-radius: 12px;
+}
+#form-feedback {
+  display: none;
+  padding: .3rem .25rem;
+  margin-bottom: 0;
+}

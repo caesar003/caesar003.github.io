@@ -2,7 +2,7 @@ const Courses = [
   {
     title : "Enhanced Speaking",
     description : "Meningkatkan kemampuan berbicara bahasa inggris dengan didominasi praktik dalam kehidupan nyata serta penambahan vocabulary yang dibutuhkan sesuai dengan tujuan pembelajaran individu. Program ini meliputi grammar for speaking, public speaking dan conversation. Materi yang dibahas meliputi kegiatan sehari-hari hingga isu internasional. ",
-    level : [1, 2, ,3],
+    level : [1, 2, 3],
     programOptions  : [
       {
         meetingCount : 8,

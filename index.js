@@ -92,7 +92,6 @@ $(document).ready(function(){
          </div>`
       )
     }
-    //console.log(displayedCard);
     $('#portfolio-card').html(displayedCard);
   }
   renderCards();

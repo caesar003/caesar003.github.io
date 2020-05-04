@@ -85,3 +85,12 @@ footer {
   height: 78px;
   border-top-right-radius: 16px;
   border-top-left-radius: 16px;
+}
+#contact a {
+  color:black;
+}
+#contact a:hover{
+  color:#f04903;
+  font-weight: bold;
+  text-decoration: underline;
+}

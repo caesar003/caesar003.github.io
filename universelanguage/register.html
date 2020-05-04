@@ -53,6 +53,10 @@
 					    <label for="name">Nama</label>
 					    <input type="text" class="form-control" id="name">
 					  </div>
+						<div class="form-group">
+					    <label for="email">Email</label>
+					    <input type="email" class="form-control" id="email">
+					  </div>
 					  <div class="form-group">
 					    <label for="dateOfBirth">Tanggal lahir</label>
 					    <input autocomplete="off" type="date" class="form-control" id="dateOfBirth">
@@ -64,16 +68,23 @@
 						<div class="form-group">
 					    <label for="program">Program </label>
 					    <select class="form-control" id="program" name="program">
-					    	<option>Enhanced Speaking</option>
-								<option>Delightful Grammar</option>
-								<option>Superb Writing</option>
-								<option>TOEFL</option>
-								<option>IELTS </option>
-								<option>Confident Class	</option>
-								<option>Creative English Class</option>
-								<option>Arise with English</option>
+								<option value="">Pilih</option>
+					    	<option value="Enhanced Speaking">Enhanced Speaking</option>
+								<option value="Delightful Grammar">Delightful Grammar</option>
+								<option value="Superb Writing">Superb Writing</option>
+								<option value="TOEFL">TOEFL</option>
+								<option value="IELTS">IELTS </option>
+								<option value="Confident Class">Confident Class	</option>
+								<option value="Creative English Class">Creative English Class</option>
+								<option value="Arise with English">Arise with English</option>
 					    </select>
 					  </div>
+						<div class="form-group">
+							<label for="programLevel">Level</label>
+							<select class="form-control" id="programLevel" name="programLevel">
+
+							</select>
+						</div>
 						<label>Durasi Program</label>
 						<div class="form-group">
 							<div class="form-check form-check-inline">
@@ -115,6 +126,7 @@
 
 		<script type="text/javascript" src="../assets/js/jquery-3.4.1.min.js"></script>
 		<script type="text/javascript" src="../assets/js/bootstrap.bundle.min.js"></script>
+		<script type="text/javascript" src="./card/Courses.js"></script>
 		<script type="text/javascript" src="./register.js"></script>
 	</body>
 </html>

@@ -118,26 +118,36 @@ $(document).ready(function(){
     ]
   });
 
-  const getCovers = () => {
+  const getCovers = (arr=Books) => {
     let p = '';
     let Title = '';
     let Author = '';
-    for (let i = 0; i< Books.length; i++){
-      if(i===0){Title=Books[i].title;Author=Books[i].author}
+    for (let i = 0; i< arr.length; i++){
+      if(i===0){Title=arr[i].title;Author=arr[i].author}
       p+= `<img
         class="cover ${i===0?'active':''} index_${i}"
-        data-title="${Books[i].title}"
-        data-author="${Books[i].author}"
+        data-title="${arr[i].title}"
+        data-author="${arr[i].author}"
         data-index="${i}"
         width="120px"
-        src="books/${Books[i].author}/${Books[i].title}.jpg">`;
+        src="books/${arr[i].author}/${arr[i].title}.jpg">`;
     }
+    $('#cover').css('display','none');
     $('#cover').html(p);
+    $('#cover').fadeIn('slow');
     showTitle(Title, Author);
   }
   const showTitle = (title, author) => {
     const Title =
-    `<p class="lead"><a href="books/${author}/${title}.pdf" class="btn btn-success btn-sm"><i class="fas fa-book-open"></i> Read</a> ${title} - ${author}</p>`;
+    `<p class="lead">
+      <a href="books/${author}/${title}.pdf" class="btn btn-success btn-sm">
+        <i class="fas fa-book-open"></i>
+        Read
+      </a>
+      <a title="Add to favorite" href="#" class="btn btn-outline-danger btn-sm">
+        <i class="fas fa-heart"></i>
+      </a>
+      ${title} - ${author}</p>`;
     $('#book-title').html(Title);
   }
   const scrollCover = (n) => {
@@ -165,6 +175,13 @@ $(document).ready(function(){
   $('#nav').on('click', '.nav-item', function(){
     const item = $(this).data('item');
     $('#search-books').val(item);
+    const covers = [];
+    for(let i=0;i<Books.length;i++){
+      if(Books[i].author === item || Books[i].tags === item){
+        covers.push(Books[i]);
+      }
+    }
+    getCovers(covers);
     myBookList.search(item).draw();
   });
 
@@ -199,6 +216,7 @@ $(document).ready(function(){
 
   $('#search-books').on('search', function(e){
     myBookList.search('').draw();
+    getCovers();
   });
 
   fetchDb();
