@@ -1,5 +1,10 @@
+@font-face{
+  src: url('../assets/font/SourceSansPro-Regular.ttf');
+  font-family: "Source Sans Pro";
+}
 body {
   font-size: 18px;
+  font-family: "Source Sans Pro", sans-serif;
 }
 #cover-outer {
   background: url('./imgs/warung_bhineka_muda___B_jZmijlggG___.jpg');
@@ -17,6 +22,7 @@ body {
 #cover-inner-image {
   width:120px;
   height:auto;
+  border:1px solid #ddd;
   border-radius: 50%;
   box-shadow: 1px 0px 6px rgba(255,255,255,0.1);
 }

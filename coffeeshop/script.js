@@ -53,12 +53,13 @@ $(document).ready(function(){
     let cards = '';
     for (let i=0; i<Images.length; i++){
       const {img_link} = Images[i];
-      cards += `
-      <div class="col-sm-5 col-md-4 col-lg-3 gallery-col bshd mb-3" data-link="${img_link}">
-        <div class="card mb-3" style="background:url(./imgs/${img_link});background-size:cover;background-position:center;">
-          <!--div class="card-body">
-            <p class="card-text"><small class="text-muted">Image caption goes here</small></p>
-          </div-->
+      cards +=
+      `<div class="col-sm-5 col-md-4 col-lg-3 gallery-col bshd mb-3" data-link="${img_link}">
+        <div class="card mb-3"
+          style="background:url(./imgs/${img_link});
+          background-size:cover;
+          background-position:center;
+        ">
         </div>
       </div>`
     }
@@ -68,7 +69,6 @@ $(document).ready(function(){
   $('#gallery-row').on('click', '.gallery-col', function(){
     const link = $(this).data('link');
     $('#modal-body').html(`<img src="./imgs/${link}" alt="${link}" style="width:100%;">`);
-    // $('#modal-content').css('background', `url('./imgs/${link}')`);
     $('#gallery-preview').modal('show');
   })
 
