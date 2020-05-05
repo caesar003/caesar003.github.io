@@ -56,7 +56,7 @@ $(document).ready(function(){
       cards +=
       `<div class="col-sm-5 col-md-4 col-lg-3 gallery-col bshd mb-3" data-link="${img_link}">
         <div class="card mb-3"
-          style="background:url(./imgs/${img_link});
+          style="background:url(./img/${img_link});
           background-size:cover;
           background-position:center;
         ">
