@@ -68,7 +68,7 @@ $(document).ready(function(){
 
   $('#gallery-row').on('click', '.gallery-col', function(){
     const link = $(this).data('link');
-    $('#modal-body').html(`<img src="./imgs/${link}" alt="${link}" style="width:100%;">`);
+    $('#modal-body').html(`<img src="./img/${link}" alt="${link}" style="width:100%;">`);
     $('#gallery-preview').modal('show');
   })
 
