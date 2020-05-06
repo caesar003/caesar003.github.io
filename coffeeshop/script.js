@@ -1,6 +1,24 @@
 $(document).ready(function(){
   const Images = [
     {
+      img_link:"BHINEKA-20.jpg",
+    },
+    {
+      img_link:"BHINEKA-21.jpg",
+    },
+    {
+      img_link:"BHINEKA-22.jpg",
+    },
+    {
+      img_link:"BHINEKA-2.jpg",
+    },
+    {
+      img_link:"BHINEKA-43.jpg",
+    },
+    {
+      img_link:"BHINEKA-8.jpg",
+    },
+    {
       img_link:"warung_bhineka_muda___B_by9gBlYym___.jpg",
     },
     {
@@ -54,7 +72,7 @@ $(document).ready(function(){
     for (let i=0; i<Images.length; i++){
       const {img_link} = Images[i];
       cards +=
-      `<div class="col-sm-5 col-md-4 col-lg-3 gallery-col bshd mb-3" data-link="${img_link}">
+      `<div class="col-10 col-sm-5 col-md-4 col-lg-3 gallery-col bshd mb-3" data-link="${img_link}">
         <div class="card mb-3"
           style="background:url(./img/${img_link});
           background-size:cover;
