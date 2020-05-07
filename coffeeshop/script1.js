@@ -72,7 +72,7 @@ $(document).ready(function(){
     for (let i=0; i<Images.length; i++){
       const {img_link} = Images[i];
       cards +=
-      `<div class="col-10 col-sm-5 col-md-4 col-lg-3 gallery-col bshd mb-3" data-link="${img_link}">
+      `<div class="col-10 col-sm-5 col-md-4 col-lg-3 gallery-col bshd mb-3" data-link="${img_link}" data-key=${i}>
         <div class="card mb-3"
           style="background:url(./img/${img_link});
           background-size:cover;
@@ -84,11 +84,26 @@ $(document).ready(function(){
     $('#gallery-row').html(cards);
   }
 
-  $('#gallery-row').on('click', '.gallery-col', function(){
-    const link = $(this).data('link');
-    $('#modal-body').html(`<img src="./img/${link}" alt="${link}" style="width:100%;">`);
+  const previewImage = (key) => {
+    $('#modal-body').html(`
+      <img src="./img/${Images[key].img_link}" alt="${Images[key].img_link}" style="width:100%;">
+      <a data-key="${key-1}" class="gallery-control prev" href="javascript:void(0);"><i class="fas fa-chevron-left"></i></a>
+      <a data-key="${key+1}" class="gallery-control next disabled" href="javascript:void(0);"><i class="fas fa-chevron-right"></i></a>`);
     $('#gallery-preview').modal('show');
-  })
+    $('#modal-body').css('display', 'none');
+    $('#modal-body').fadeIn('fast');
+  }
+  $('#gallery-row').on('click', '.gallery-col', function(){
+    const key = $(this).data('key');
+    previewImage(key);
+  });
+
+  $('#modal-body').on('click', '.gallery-control', function(){
+    const key= $(this).data('key');
+    if(Number(key)>=0&&Number(key)!==Images.length){
+      previewImage(key);
+    }
+  });
 
   renderGallery();
 

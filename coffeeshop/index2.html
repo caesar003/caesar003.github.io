@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bhinneka Muda Coffee shop</title>
+    <link rel="stylesheet" href="../assets/css/cosmo-bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="./style2.css">
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="#"><i class="fas fa-coffee"></i> Bhinneka Muda</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">item 1 <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">item 2</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">item 3</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">item 4</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Top Cover -->
+
+    <div class="container-fluid bshd" id="cover-outer">
+      <div class="jumbotron d-flex align-items-end justify-content-center" id="cover-inner">
+        <div class="container-fluid d-flex flex-column align-items-center">
+          <img id="cover-inner-image" src="./img/warung_bhineka_muda___B700lBRAtP0___.jpg" alt="warung_bhineka_muda___B700lBRAtP0___">
+          <p>Some text goes here</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Gallery</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+          <div class="container">
+            <h1 class="mt-3">Title</h1>
+            <div class="row justify-content-center">
+              <div class="col-8 col-sm-10 col-md-6 order-2 order-md-1">
+                <img class="img-fluid img-thumbnail bshd" src="./img/warung_bhineka_muda___B_by9gBlYym___.jpg" alt="warung_bhineka_muda___B_by9gBlYym___">
+                <p class="text-muted image-caption">Image caption goes here</p>
+              </div>
+              <div class="col-10 col-sm-8 col-md-6 order-1 order-md-2">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="container">
+            <h1 class="mt-3">Title</h1>
+            <div class="row justify-content-center">
+              <div class="col-10 col-sm-8 col-md-6">
+
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              </div>
+              <div class="col-8 col-sm-10 col-md-6">
+                <img class="img-fluid img-thumbnail bshd" src="./img/BHINEKA-43.jpg" alt="warung_bhineka_muda___B_by9gBlYym___">
+                <p class="text-muted image-caption">Image caption goes here</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+          <div class="container" id="gallery">
+            <h1 class="text-center display-4 mt-3">Gallery</h1>
+            <div class="row justify-content-around justify-content-md-start" id="gallery-row">
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+          <div class="container" id="visitUs">
+            <div class="row justify-content-around">
+              <div class="col-10 col-md-5">
+                <h4 class="text-center mt-3">Bhineka Muda coffeeshop</h4>
+                <p>Jl. Merdeka no 4 Tanjung Bungkak, Kota Denpasar. <br>
+                  Open Everyday 10 am - 7 pm.</p>
+                <ul class="list-unstyled">
+                  <li><i class="fab fa-whatsapp fa-fw"></i> Whatsapp</li>
+                  <li><i class="fab fa-instagram fa-fw"></i> Instagram</li>
+                  <li><i class="fab fa-facebook fa-fw"></i> Facebook</li>
+                  <li><i class="fab fa-twitter fa-fw"></i> Twitter</li>
+                </ul>
+              </div>
+              <div class="col-10 col-md-5">
+                <h4 class="text-center mt-3">Contact us</h4>
+                <form>
+                  <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name">
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                  </div>
+                  <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea class="form-control" cols="5" name="message" id="message"></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Send </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="text-center mt-4">
+      <p><small>Copyright &copy; Bhinneka Muda 2020. All rights reserved.</small></p>
+    </footer>
+
+    <div class="modal fade" tabindex="-1" role="dialog" id="gallery-preview">
+      <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="row justify-content-center">
+              <div class="col-10" id="modal-body">
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="../assets/js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="../assets/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="./script2.js"></script>
+  </body>
+</html>
