@@ -67,6 +67,38 @@ $(document).ready(function(){
       img_link:"warung_bhineka_muda___B9f02RFgmE0___.jpg",
     },
   ];
+  const Menus =  [
+    {
+      product_name:"Product 1",
+      img_link:"warung_bhineka_muda___B_l5ORMAOK3___.jpg",
+      price : "12.500",
+    },
+    {
+      product_name:"Product 2",
+      img_link:"warung_bhineka_muda___B700lBRAtP0___.jpg",
+      price : "28.300",
+    },
+    {
+      product_name:"Product 3",
+      img_link:"warung_bhineka_muda___B746QpulAEd___.jpg",
+      price : "14.700",
+    },
+    {
+      product_name:"Product 4",
+      img_link:"warung_bhineka_muda___B7-r4g1AEuC___.jpg",
+      price : "19.000",
+    },
+    {
+      product_name:"Product 5",
+      img_link:"warung_bhineka_muda___B8x-zf_lqV2___.jpg",
+      price : "19.000",
+    },
+    {
+      product_name:"Product 6",
+      img_link:"warung_bhineka_muda___B9f02RFgmE0___.jpg",
+      price : "21.500",
+    },
+  ];
   const renderGallery = () => {
     let cards = '';
     for (let i=0; i<Images.length; i++){
@@ -74,7 +106,7 @@ $(document).ready(function(){
       cards +=
       `<div class="col-10 col-sm-5 col-md-4 col-lg-3 gallery-col bshd mb-3" data-link="${img_link}" data-key="${i}">
         <div class="card mb-3"
-          style="background:url(./img/${img_link});
+          style="background:url('./img/${img_link}');
           background-size:cover;
           background-position:center;
         ">
@@ -82,6 +114,30 @@ $(document).ready(function(){
       </div>`
     }
     $('#gallery-row').html(cards);
+  }
+
+  const renderMenu = () => {
+    let menus = '';
+    for(let i=0; i<Menus.length; i++){
+      const {product_name, img_link, price} = Menus[i];
+      menus += `
+      <div class="col-10 col-sm-5 col-md-4 mb-3">
+        <div class="card">
+          <div class="card-body"
+          style=
+            "background:url('./img/${img_link}');
+            background-size:cover;
+            background-position:center center;">
+          </div>
+          <div class="card-footer">
+            <p class="card-text">${product_name} <span class="float-right">Rp. ${price},-</span></p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <a href="javascript:void(0);" class="btn btn-warning btn-sm"><i class="fas fa-cart-plus fa-fw"></i> Order now</a>
+          </div>
+        </div>
+      </div>`;
+    }
+    $('#menuRow').html(menus);
   }
 
   const previewImage = (key) => {
@@ -108,5 +164,5 @@ $(document).ready(function(){
 
 
   renderGallery();
-
+  renderMenu();
 });

@@ -49,6 +49,10 @@ body {
   padding-bottom: 1rem;
 }
 
+.card-body {
+  min-height: 240px;
+}
+
 .gallery-control {
   position: absolute;
   top: 45%;
@@ -66,4 +70,10 @@ a.next {
 }
 a.prev {
   left:8%;
+}
+
+h1.display-4 {
+  border-bottom: 2px solid #f1f1f1;
+  width: 30%;
+  margin: 20px auto;
 }
