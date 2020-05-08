@@ -71,34 +71,39 @@ $(document).ready(function(){
     {
       product_name:"Product 1",
       img_link:"warung_bhineka_muda___B_l5ORMAOK3___.jpg",
-      price : "12.500",
+      price : 12500,
     },
     {
       product_name:"Product 2",
       img_link:"warung_bhineka_muda___B700lBRAtP0___.jpg",
-      price : "28.300",
+      price : 28300,
     },
     {
       product_name:"Product 3",
       img_link:"warung_bhineka_muda___B746QpulAEd___.jpg",
-      price : "14.700",
+      price : 14700,
     },
     {
       product_name:"Product 4",
       img_link:"warung_bhineka_muda___B7-r4g1AEuC___.jpg",
-      price : "19.000",
+      price : 19000,
     },
     {
       product_name:"Product 5",
       img_link:"warung_bhineka_muda___B8x-zf_lqV2___.jpg",
-      price : "19.000",
+      price : 19000,
     },
     {
       product_name:"Product 6",
       img_link:"warung_bhineka_muda___B9f02RFgmE0___.jpg",
-      price : "21.500",
+      price : 21500,
     },
   ];
+
+  const convertIDR = (n) => {
+    return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(n);
+  }
+  
   const renderGallery = () => {
     let cards = '';
     for (let i=0; i<Images.length; i++){
@@ -130,7 +135,7 @@ $(document).ready(function(){
             background-position:center center;">
           </div>
           <div class="card-footer">
-            <p class="card-text">${product_name} <span class="float-right">Rp. ${price},-</span></p>
+            <p class="card-text">${product_name} <span class="float-right">${convertIDR(price)}</span></p>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             <a href="javascript:void(0);" class="btn btn-warning btn-sm"><i class="fas fa-cart-plus fa-fw"></i> Order now</a>
           </div>
