@@ -75,5 +75,5 @@ $(document).ready(function(){
   // $('#main-content').on('mouseup', '.img-thumb', function(){
   //   $(this).zoom();
   // });
-  $('.card').zoom();
+  // $('.card').zoom();
 })
