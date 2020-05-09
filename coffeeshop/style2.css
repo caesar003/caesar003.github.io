@@ -76,6 +76,31 @@ a.prev {
 
 h1.display-4 {
   border-bottom: 2px solid #f1f1f1;
-  width: 30%;
+  width: 35%;
   margin: 20px auto;
+}
+#testimonyCarousel {
+  border-radius: 12px;
+    background: #ddd;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-item {
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  text-align: left;
+  padding: 0 20%;
+}
+.testimony-text {
+  font-size: smaller;
+}
+
+img.prof-pict {
+    width: 25px;
+    border-radius: 50%;
+    border: 1px solid #ddd;
 }

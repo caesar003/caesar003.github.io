@@ -99,11 +99,28 @@ $(document).ready(function(){
       price : 21500,
     },
   ];
+  const Testimonies = [
+    {
+      user_name : "John Doe",
+      prof_picture : "220px-Bill_Gates_2014.webp",
+      comment : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    },
+    {
+      user_name: "Tom Smith",
+      prof_picture: "220px-Jeff_Bezos_at_Amazon_Spheres_Grand_Opening_in_Seattle_-_2018_(39074799225)_(cropped).webp",
+      comment : "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    },
+    {
+      user_name: "Alan Smith",
+      prof_picture : "220px-Carlos_Slim_(45680472234)_(cropped).jpg",
+      comment : "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    },
+  ];
 
   const convertIDR = (n) => {
     return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(n);
   }
-  
+
   const renderGallery = () => {
     let cards = '';
     for (let i=0; i<Images.length; i++){
@@ -145,6 +162,19 @@ $(document).ready(function(){
     $('#menuRow').html(menus);
   }
 
+  const renderComments = () => {
+    let carousels = '';
+    for(let i=0; i<Testimonies.length; i++){
+      const {user_name, prof_picture, comment} = Testimonies[i];
+      carousels+= `
+      <div class="carousel-item ${i===0?'active':''}">
+        <h5><img class="prof-pict" src="../assets/img/${prof_picture}"> ${user_name}</h5>
+        <p class="testimony-text">${comment}</p>
+      </div>`
+    }
+    $('#testimonyInner').html(carousels);
+  }
+
   const previewImage = (key) => {
     $('#modal-body').html(`
       <img src="./img/${Images[key].img_link}" alt="${Images[key].img_link}" style="width:100%;">
@@ -170,4 +200,5 @@ $(document).ready(function(){
 
   renderGallery();
   renderMenu();
+  renderComments();
 });
