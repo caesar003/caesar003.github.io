@@ -78,7 +78,7 @@ $(document).ready(function(){
     for (let i = 0; i<images_links.length; i++){
       const {image, title, link, description} = images_links[i];
       displayedCard.push(
-        `<div class="col-md-6 col-lg-4 mb-4">
+        `<div class="col-10 col-md-5 col-lg-4 mb-4">
            <div class="card" data-link="${link}">
              <img src="assets/img/${image}" alt="${title}" class="card-img-top bshd">
             <div class="card-body">
