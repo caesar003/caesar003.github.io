@@ -8,8 +8,6 @@
 }
 body {
   font-family: 'Montserrat', sans-serif;
-  /* background: #3f51b536;
-  background: linear-gradient(45deg,#3f51b536,#494f7185); */
 }
 .navbar-brand img {
   width: 25px;
@@ -53,8 +51,6 @@ section {
                0px 18px 22px rgba(0,0,0,0.1);
 }
 #portfolios .card {
-  /* background-color: transparent; */
-  /* border:0px; */
   box-shadow: 10px 5px 5px #3f51b536;
   min-height: 410px;
 }
