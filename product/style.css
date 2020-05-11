@@ -22,3 +22,7 @@ td.left {
   cursor:pointer;
   color: darkgray;
 }
+.minus {
+  background-color:#f00;
+  color:#fff;
+  }

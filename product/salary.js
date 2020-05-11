@@ -4,7 +4,7 @@ const renderEmployees = () => {
     const {id, name, dept, day, salary, food, trsp, ov, ded, paid} = employees[i];
     const thp = ((day*food)+(day*trsp)+ov+salary)-ded;
     rows.push(
-      `<tr class="${paid?'paid':''}">
+      `<tr class="${paid?'paid':''} ${thp<0?'minus':''}">
         <td>${id}</td>
         <td class="left">${name}</td>
         <td class="left">${dept}</td>
