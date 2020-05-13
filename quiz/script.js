@@ -219,7 +219,7 @@ $(document).ready(function(){
   const renderScore = () => {
     const score = QuizTracker.score;
     const totalQuestion = QuizTracker.totalQuestion;
-    const Score = `<h3>You answered ${score} out of ${totalQuestion} question!</h3>;`;
+    const Score = `<h3>You answered ${score} out of ${totalQuestion} question!</h3>`;
     $('#main-content').css('display', 'none');
     $('#main-content').html(Score);
     $('#main-content').fadeIn('fast');
