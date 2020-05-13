@@ -1,0 +1,24 @@
+#navbar {
+  padding: 0;
+  display: none;
+}
+#navbar .row {
+  font-size: 24px;
+  background-color: #000;
+  padding:0;
+}
+#navbar .col {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+#navbar a {
+  color: #fff;
+}
+
+#main-content {
+  padding-top:40%;
+}
+.question-list-item:hover{
+  background-color: rgba(63, 166, 206, 0.86);
+  color:#fff;
+}

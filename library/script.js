@@ -42,7 +42,12 @@ $(document).ready(function(){
     return Items;
   }
   const getNav = () => {
-    let returned = '';
+    let returned = `
+      <details>
+        <summary class="allbooks">
+          All books
+        </summary>
+      </details>`;
     for(let i=0; i<Categories.length; i++){
       const Letters = getLetters(Categories[i]);
       returned +=
@@ -162,6 +167,10 @@ $(document).ready(function(){
     const currentPage = location.href;
     location = currentPage+path;
   }
+  $('#nav').on('click','.allbooks', function(){
+    myBookList.search("").draw();
+    getCovers();
+  });
 
   $('#cover').on('click', '.cover', function(){
     const index = $(this).data('index');
@@ -172,7 +181,7 @@ $(document).ready(function(){
     giveClass(index);
   });
 
-  $('#nav').on('click', '.nav-item', function(){
+    $('#nav').on('click', '.nav-item', function(){
     const item = $(this).data('item');
     $('#search-books').val(item);
     const covers = [];
@@ -212,6 +221,19 @@ $(document).ready(function(){
     e.preventDefault();
     const item = $(this).val();
     myBookList.search(item).draw();
+  });
+  
+  myBookList.on('order.dt', function(){
+    const totalRow = $('#books tbody tr').length;
+    console.log(totalRow);
+    for (let i=0; i<totalRow.length; i++){
+      console.log($('#books tbody tr')[i]);
+    }
+    console.log($('#books tbody tr')[0]);
+    const rows = $('#books tbody tr');
+/*    for(let i=0; i<totalRow; i++){
+      console.log($('#books tbody tr td:first').text());
+    }*/
   });
 
   $('#search-books').on('search', function(e){

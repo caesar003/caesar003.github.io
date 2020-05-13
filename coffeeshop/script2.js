@@ -1,4 +1,5 @@
 $(document).ready(function(){
+ "use strict";
   const Images = [
     {
       img_link:"BHINEKA-20.jpg",

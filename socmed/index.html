@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../assets/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <title>Social Media</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Dropdown
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+
+
+    <div class="jumbotron" id="cover">
+     <div class="row justify-content-end align-items-end" id="cover-inner">
+        <div class="col-10 col-md-4 d-flex flex-column justify-content-end align-items-center">
+          <img id="prof-pict" src="../assets/img/220px-Bill_Gates_2014.webp" alt="" />
+          <p class="my-0 mx-0 lead">Username</p>
+          <p id="user-caption">Lorem ipsum dolor sit amet.</p>
+
+        </div>
+     </div>
+    </div>
+
+    <div class="container">
+      <textarea rows="5" class="form-control" placeholder="How's your day?"></textarea>
+        <button class="btn btn-success mt-2 float-right">Post</button>
+    </div>
+
+    <div class="container" style="clear:both;">
+      <h1 class="display-4">What's new?</h1>
+      <div class="row">
+        <div class="col-8">
+          <div class="feed">
+            <h5><img class="prof-pict" src="../assets/img/220px-Bill_Gates_2014.webp" alt="Bill Gates" /> username</h5>
+            <p class="feed">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum..</p>
+
+            <div class="action">
+              <a><i class="like fas fa-heart fa-fw"></i></a>
+              <a><i class="comment fas fa-comment fa-fw"></i></a>
+              <span class="like-label">123 liked this</span> <span class="comment-label">28 comments</span>
+            </div>
+          </div>
+
+          <div class="feed">
+            <h5><img class="prof-pict" src="../assets/img/220px-Bill_Gates_2014.webp" alt="Bill Gates" /> username</h5>
+            <p class="feed">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum..</p>
+
+            <div class="action">
+              <a><i class="like fas fa-heart fa-fw"></i></a>
+              <a><i class="comment fas fa-comment fa-fw"></i></a>
+              <span class="like-label">123 liked this</span> <span class="comment-label">28 comments</span>
+            </div>
+          </div>
+
+
+        </div>
+
+        <div class="col-4">
+          <h3>People you might know</h3>
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-warning btn-lg" id="chat-button"><i class="fas fa-comment fa-fw"></i></button>
+    <footer class="text-center">Copyright &copy; company 2020</footer>
+    <script src="../assets/js/jquery-3.4.1.min.js"></script>
+    <script src="../assets/js/bootstrap.bundle.min.js"></script>
+    <script src="./script.js"></script>
+  </body>
+</html>

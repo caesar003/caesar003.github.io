@@ -52,7 +52,7 @@ hr {
  }
  #cover {
    overflow-x: scroll;
-   height: 360px;
+   height: 280px;
    background: aliceblue;
  }
  img.cover{
@@ -64,6 +64,7 @@ hr {
                 0px 1px 12px rgba(0,0,0,0.1);
   transform-style: preserve-3d;
     transform: perspective(7cm) rotateX(-15deg) rotateY(15deg);
+    transition : all 1s ease-out;
  }
  .cover.active {
    width: 160px;
@@ -75,6 +76,11 @@ hr {
     transform: perspective(0) rotateX(0) rotateY(0);
  }
 
+ .cover:hover {
+   cursor: pointer;
+   transform: scale(1.1);
+ }
+
   table {
     font-size: 0.9rem;
   }
@@ -82,4 +88,17 @@ hr {
   details {
   font: 16px "Open Sans", "Arial", sans-serif;
   width: 620px;
+}
+footer {
+    position: fixed;
+    height:32px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+    padding : 5px 10px;
+    background-color:#ddd;
+}
+summary.allbooks::-webkit-details-marker {
+    display: none;
 }

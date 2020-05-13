@@ -1,4 +1,5 @@
 $(document).ready(function(){
+"use strict";
   const images_links = [
     {
       image : "single_carousel.jpg",
