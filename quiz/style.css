@@ -73,3 +73,6 @@ input.cm {
     text-align: center;
     font-size: larger;
 }
+.col-2 {
+  padding-left:0;
+}
