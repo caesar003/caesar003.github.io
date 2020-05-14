@@ -1,3 +1,7 @@
+@font-face {
+  font-family:'Digital-7';
+  src : url('../assets/font/digital-7.ttf');
+}
 #navbar {
   padding: 0;
   display: none;
@@ -16,7 +20,7 @@
 }
 
 #main-content {
-  padding-top:20%;
+  padding-top:3%;
 }
 .question-list-item:hover{
   background-color: rgba(63, 166, 206, 0.86);
@@ -42,4 +46,30 @@ input.cm {
     width: 0.01px;
     margin: 0;
     padding: 0;
+}
+#indicator {
+  height: 80vh;
+  overflow: scroll;
+}
+#indicator li {
+  height: 40px;
+  text-align: end;
+  padding: 5px;
+  width: 40px;
+}
+#indicator li:hover {
+  background-color: chartreuse;
+  cursor:pointer;
+}
+#indicator li.answered {
+  background-color: chartreuse;
+}
+#timer {
+    background-color: grey;
+    color: #fff;
+    padding: 3px;
+    border-radius: 4px;
+    font-family: 'Digital-7', sans-serif;
+    text-align: center;
+    font-size: larger;
 }

@@ -3,7 +3,8 @@ $(document).ready(function(){
   /*============================================================================
   VARIABLES
   ============================================================================*/
-
+  let Minute = 3;
+  let Second = 0;
   const QuizTracker = {
     questionId : 0,
     questionNumber : 0,
@@ -11,6 +12,7 @@ $(document).ready(function(){
     answers : [],
     correctAnswers : [],
     score : 0,
+    answered : false,
   }
 
   /*============================================================================
@@ -26,6 +28,15 @@ $(document).ready(function(){
   const showNavbar = (style) => {
     $('#navbar').css('display', style);
   }
+
+  const renderHeader = (msg) => {
+    if(!msg){
+      $('#header').html("");
+    } else {
+      $('#header').html(msg);
+    }
+  }
+
   const displayError = (el, msg) => {
     el.addClass('alert alert-danger');
     el.html(msg);
@@ -124,17 +135,29 @@ $(document).ready(function(){
   */
   const renderQuestion = (q = QuizTracker.questionId, n = QuizTracker.questionNumber) => {
     const {questionType, question, answer} = Questions[q][n];
+    const header = `<p class="font-weight-bold">${QuestionList[q].title}</p>`;
     let Question = '';
     if(questionType==='mc'){
       Question += `
-        <p class="font-weight-bold">${QuestionList[q].title}</p>
         <p>Question ${n+1} of ${QuizTracker.totalQuestion}</p>
         <p>${question}</p>`;
       for(let letter in answer){
         Question +=
           `<div class="form-check">
-            <input class="form-check-input" type="radio" name="answer${n}" id="answer${n}${letter}" value="${letter}">
-            <label class="form-check-label" for="answer${n}${letter}">
+            <input
+              data-answer="${letter}"
+              data-number="${n}"
+              class="form-check-input"
+              type="radio"
+              name="answer${n}"
+              id="answer${n}${letter}"
+              value="${letter}"
+              ${QuizTracker.answers[n]===letter?'checked':''}>
+            <label
+              data-answer="${letter}"
+              data-number="${n}"
+              class="form-check-label"
+              for="answer${n}${letter}">
               ${letter}. ${answer[letter]}
             </label>
           </div>`;
@@ -142,19 +165,24 @@ $(document).ready(function(){
     } else {
       const Q = question;
       const A = answer;
-      Question += `<p class="font-weight-bold">${QuestionList[q].title}</p>
+      Question += `
       <p>Question ${n+1} of ${QuizTracker.totalQuestion}</p>`;
       for(let i=0; i<Q.length; i++){
         if(Q[i]==='_a'||Q[i]==='_b'||Q[i]==='_c'||Q[i]==='_d'){
+          const letter = Q[i].replace('_','');
           Question += `
             <input
               class="cm"
+              data-answer="${letter}"
+              data-number="${n}"
               type="radio"
               name="answer${n}"
               id="answer${n}${Q[i]}"
-              value="${Q[i].replace('_','')}">
+              value="${letter}">
             <label
-              class="cm-label"
+              class="cm-label ${QuizTracker.answers[n]===letter?'selected':''}"
+              data-number="${n}"
+              data-answer="${letter}"
               for="answer${n}${Q[i]}"> ${A[Q[i]]} </label> `;
         } else {
           Question += ` ${Q[i]} `;
@@ -162,22 +190,97 @@ $(document).ready(function(){
       }
     }
       Question +=
-        `<div class="container d-flex justify-content-center mt-3">
-          <button class="btn btn-outline-info btn-answer">
-            <i class="fas fa-check"></i>
-            Submit
+        `<div class="container d-flex justify-content-center mt-3">`;
+        if(n===0){
+          Question +=`
+          <button class="btn btn-outline-danger btn-prev mx-2" disabled>
+            <i class="fas fa-angle-double-left fa-fw"></i>
+            Prev
           </button>
-        </div>`;
+            <button data-number="${n+1}" class="btn btn-outline-success btn-next mx-2">
+              Next
+              <i class="fas fa-angle-double-right fa-fw"></i>
+            </button>`;
+        } else if(n===QuizTracker.totalQuestion-1){
+          Question +=`
+            <button data-number="${n-1}" class="btn btn-outline-danger btn-prev mx-2">
+              <i class="fas fa-angle-double-left fa-fw"></i>
+              Prev
+            </button>
+            <button class="btn btn-outline-info btn-answer">
+              <i class="fas fa-check"></i>
+              Submit
+            </button>`;
+        } else {
+          Question +=`
+            <button data-number="${n-1}" class="btn btn-outline-danger btn-prev mx-2">
+              <i class="fas fa-angle-double-left fa-fw"></i>
+              Prev
+            </button>
+            <button data-number="${n+1}" class="btn btn-outline-success btn-next mx-2">
+              Next
+              <i class="fas fa-angle-double-right fa-fw"></i>
+            </button>`;
+        }
+
+        Question +=`</div>`;
+    renderHeader(header);
     Render(Question);
   }
 
+  const renderIndicator = () => {
+    const totalQuestion = QuizTracker.totalQuestion;
+    let indicator = '';
+    for(let i=0; i<totalQuestion; i++){
+      indicator += `
+      <li
+        data-number="${i}"
+        class="list-group-item indicator-item">
+        ${i+1}
+      </li>`;
+    }
+    $('#indicator').html(indicator);
+  }
+
+  const showTime = () => {
+    if(Second === 0 && Minute > 0){
+      Second = 59;
+      Minute--;
+    } else if(Second === 0 && Minute === 0){
+      stopTimer();
+      renderScore();
+    } else {
+      Second--;
+    }
+    $('#timer').css('display', 'block');
+    $('#timer').html(`${Minute<10?'0'+Minute:Minute} : ${Second<10?'0'+Second:Second}`);
+  }
+
+  let startTimer;
+
+  const stopTimer = () => {
+    clearInterval(startTimer);
+  }
+
+  const handleAnswer = (n, answer) => {
+    const ind = $('#indicator').find(`li[data-number=${n}]`);
+    QuizTracker.answers[n] = answer;
+    ind.addClass('answered');
+  }
+
   const renderScore = () => {
-    const score = QuizTracker.score;
+    let score = 0;
+    const userAnswers = QuizTracker.answers;
+    const correctAnswers = QuizTracker.correctAnswers;
+    for(let i=0; i<correctAnswers.length; i++){
+      if(correctAnswers[i]===userAnswers[i]){
+        score++;
+      }
+    }
     const totalQuestion = QuizTracker.totalQuestion;
     const Score = `<h3>You correctly answered ${score} out of ${totalQuestion} question!</h3>`;
-    $('#main-content').css('display', 'none');
-    $('#main-content').html(Score);
-    $('#main-content').fadeIn('fast');
+    Render(Score);
+    $('#indicator').css('display', 'none');
   }
 
   /*============================================================================
@@ -209,6 +312,7 @@ $(document).ready(function(){
   $('#signOut').on('click', function(){
     localStorage.setItem('isSignIn', 'false');
     renderSignIn();
+    renderHeader(null);
   });
 
   // NEW ACCOUNT LINK
@@ -246,27 +350,44 @@ $(document).ready(function(){
     for(let i=0; i<Questions[id].length; i++){
       QuizTracker.correctAnswers.push(Questions[id][i].correctAnswer);
     }
+    QuizTracker.answers[QuizTracker.totalQuestion-1] = null;
+    renderQuestion();
+    renderIndicator();
+    startTimer = setInterval(showTime, 1000);;
+  });
+
+  $('#indicator').on('click', '.indicator-item', function(){
+    const n = $(this).data('number');
+    QuizTracker.questionNumber = n;
     renderQuestion();
   });
 
   $('#main-content').on('click', '.btn-answer', function(){
-    const answer = $('input:checked').val();
-    const questionNumber = QuizTracker.questionNumber;
-    QuizTracker.answers.push(answer);
-    QuizTracker.questionNumber = questionNumber+1;
-    if(answer===QuizTracker.correctAnswers[questionNumber]){
-      QuizTracker.score++;
-    }
-    if(QuizTracker.questionNumber===QuizTracker.totalQuestion){
-      renderScore();
-    } else {
-      renderQuestion();
-    }
+    // $('#staticBackdrop').modal('show');
+    renderScore();
   });
 
   $('#main-content').on('click', '.cm-label', function(){
     $(this).siblings().removeClass('selected');
     $(this).addClass('selected');
+  });
+
+  $('#main-content').on('click', '.btn-next, .btn-prev', function(){
+    const n = $(this).data('number');
+    QuizTracker.questionNumber = n;
+    renderQuestion();
+  });
+
+  $('#main-content').on('click', '.form-check-input', '.form-check-label', function(){
+    const n = $(this).data('number');
+    const answer = $(this).data('answer');
+    handleAnswer(n, answer);
+  });
+
+  $('#main-content').on('click', '.cm-label', function(){
+    const n = $(this).data('number');
+    const answer = $(this).data('answer');
+    handleAnswer(n, answer);
   });
 
   /*============================================================================

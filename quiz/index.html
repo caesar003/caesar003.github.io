@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="./style.css?v=1.0">
+    <link rel="stylesheet" href="./style.css?v=1.1">
   </head>
   <body>
     <div class="container-fluid fixed-bottom" id="navbar">
@@ -27,14 +27,52 @@
         </div>
       </div>
     </div>
+    <div class="container pt-3">
+      <div class="row">
+        <div class="col-10" id="header"></div>
+        <div class="col-2">
+          <p style="display:none;" id="timer"></p>
+        </div>
+      </div>
+    </div>
 
-    <div class="container" id="main-content">
+    <div class="container">
+      <div class="row">
+        <div class="col-10" id="main-content">
 
+        </div>
+        <div class="col-2">
+          <ul class="list-group" id="indicator">
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Understood</button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script src="../assets/js/jquery-3.4.1.min.js"></script>
     <script src="../assets/js/bootstrap.bundle.min.js"></script>
     <script src="./question.js"></script>
-    <script src="./script.js?v=1.1"></script>
+    <script src="./script.js?v=1.2"></script>
   </body>
 </html>
