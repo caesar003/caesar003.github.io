@@ -22,3 +22,24 @@
   background-color: rgba(63, 166, 206, 0.86);
   color:#fff;
 }
+
+label.cm-label{
+  font-weight: bolder;
+  text-decoration: underline;
+  padding:2px;
+}
+label.cm-label:hover{
+  color:navy;
+}
+
+label.cm-label.selected {
+    background-color: blanchedalmond;
+    border-radius: 4px;
+}
+
+input.cm {
+    height: 0.01px;
+    width: 0.01px;
+    margin: 0;
+    padding: 0;
+}
