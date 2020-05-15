@@ -59,11 +59,14 @@ input.cm {
   width: 40px;
 }
 #indicator li:hover {
-  background-color: chartreuse;
   cursor:pointer;
+  background-color: #d4edda;
+  color:#155724;
+}
 }
 #indicator li.answered {
-  background-color: chartreuse;
+  background-color: #d4edda;
+  color:#155724;
 }
 #timer {
     background-color: grey;
