@@ -115,8 +115,6 @@ $(document).ready(function(){
         </details>`
     }
     $('#allposts').html(allPosts);
-    console.log(filteredYears);
-    console.log(filteredYears.sort());
   }
   renderCover()
   renderPosts();

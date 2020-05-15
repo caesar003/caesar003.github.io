@@ -48,7 +48,7 @@ input.cm {
 }
 #indicator {
   height: 70vh;
-  overflow: scroll;
+  overflow-y: scroll;
   margin-top:0;
 }
 #indicator li {
