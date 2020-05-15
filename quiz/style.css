@@ -29,7 +29,6 @@
 
 label.cm-label{
   font-weight: bolder;
-  text-decoration: underline;
   padding:2px;
 }
 label.cm-label:hover{
