@@ -21,7 +21,6 @@ h1 {
 }
 
 img#profile-picture {
-    width: 80%;
     border-radius: 50%;
     border: 1px solid #ddd;
     opacity: 0.8;
