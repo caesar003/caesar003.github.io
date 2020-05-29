@@ -28,3 +28,34 @@ img#profile-picture {
 .image-caption {
       font-family: cursive;
 }
+
+.purple {
+  background: #ad60ce;
+}
+
+.yellow {
+    background: #fffa37;
+    color: #000;
+}
+
+.blue {
+    background: #64ddbb;
+    color: navy;
+}
+.fb {
+  background: #3b5998;
+}
+.twitter {
+  background: #00aced;
+}
+.red {
+    background: #dd4b39;
+}
+.green {
+    background: #27ae60;
+}
+.letter {
+    padding: 10px;
+    border-radius: 50%;
+    font-weight: 700;
+}
