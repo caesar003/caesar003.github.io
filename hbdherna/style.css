@@ -1,0 +1,31 @@
+@font-face {
+  src: url('../assets/font/GreatVibes-Regular.ttf');
+  font-family: "GreatVibes";
+}
+body {
+  margin: 0;
+  background: #020202;
+  cursor: crosshair;
+}
+canvas{display:block}
+div#main-content {
+    position: absolute;
+    top: 20%;
+    display: block;
+    color: #fff;
+}
+h1 {
+  font-family: "GreatVibes";
+  font-size: 5rem;
+  font-weight: 900;
+}
+
+img#profile-picture {
+    width: 80%;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    opacity: 0.8;
+}
+.image-caption {
+      font-family: cursive;
+}
