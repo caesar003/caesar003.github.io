@@ -1,0 +1,38 @@
+.css-chart {
+  border-bottom: 1px solid;
+  border-left: 1px solid;
+  height: var(--widget-size);
+  margin: 1em;
+  padding: 0;
+  position: relative;
+  /* width: var(--widget-size); */
+  width: 480px;
+}
+
+.line-chart {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.data-point {
+  background-color: white;
+  border: 2px solid lightblue;
+  border-radius: 50%;
+  height: 12px;
+  position: absolute;
+  width: 12px;
+  bottom: calc(var(--y) - 6.5px);
+  left: calc(var(--x) - 9.5px);
+}
+
+.line-segment {
+  background-color: blue;
+  bottom: var(--y);
+  height: 3px;
+  left: var(--x);
+  position: absolute;
+  transform: rotate(calc(var(--angle) * 1deg));
+  transform-origin: left bottom;
+  width: calc(var(--hypotenuse) * 1px);
+}

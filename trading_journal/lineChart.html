@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./assets/css/lineChart.css">
+    <title></title>
+  </head>
+  <body>
+
+    <figure class="css-chart" style="--widget-size: 200px;">
+      <ul class="line-chart" id="lineChart">
+      </ul>
+    </figure>
+
+  <script>
+  const records = [
+    {
+      date: "2020.09.28",
+      profit: 261,
+      swap: 0
+    },
+    {
+      date: "2020.09.29",
+      profit: 5.06,
+      swap: -0.22,
+    },
+    {
+      date: "2020.09.30",
+      profit: 77.14,
+      swap: 0,
+    },
+    {
+      date: "2020.10.01",
+      profit: 29.43,
+      swap: 0,
+    },
+    {
+      date: "2020.10.02",
+      profit: 326.40,
+      swap: 0
+    },
+    {
+      date: "2020.10.05",
+      profit: 164.48,
+      swap: 0,
+    },
+    {
+      date: "2020.10.06",
+      profit: -792.84,
+      swap: -3,
+    },
+    {
+      date: "2020.10.07",
+      profit: 3.33,
+      swap: 0,
+    },
+    {
+      date: "2020.10.09",
+      profit: 117.48,
+      swap: -0.87,
+    },
+    {
+      date: "2020.10.07",
+      profit: 3.33,
+      swap: 0,
+    },
+    {
+      date: "2020.10.09",
+      profit: 117.48,
+      swap: -0.87,
+    },
+    {
+      date: "2020.10.07",
+      profit: 3.33,
+      swap: 0,
+    },
+    {
+      date: "2020.10.09",
+      profit: 117.48,
+      swap: -0.87,
+    },
+    {
+      date: "2020.10.07",
+      profit: 3.33,
+      swap: 0,
+    },
+    {
+      date: "2020.10.09",
+      profit: 117.48,
+      swap: -0.87,
+    },
+    {
+      date: "2020.10.07",
+      profit: 3.33,
+      swap: 0,
+    },
+    {
+      date: "2020.10.09",
+      profit: 117.48,
+      swap: -0.87,
+    },
+    {
+      date: "2020.10.02",
+      profit: 326.40,
+      swap: 0
+    },
+    {
+      date: "2020.10.05",
+      profit: 164.48,
+      swap: 0,
+    },
+    {
+      date: "2020.10.02",
+      profit: 326.40,
+      swap: 0
+    },
+    {
+      date: "2020.10.05",
+      profit: 164.48,
+      swap: 0,
+    },
+
+  ];
+
+  </script>
+  <script>
+    const getData = () => {
+      const arr = [];
+      let balance = 0;
+      for(let i=0; i<records.length; i++){
+        const {profit, swap} = records[i];
+        arr.push(balance + profit + swap);
+        balance = balance + profit + swap;
+      }
+      return arr;
+    }
+    const renderChart = () => {
+      const data = getData();
+      const lineChart = document.getElementById("lineChart");
+      const maxValue = Math.max(...data);
+      const minValue = Math.min(...data);
+      const range = maxValue - minValue;
+      const topLine = 200;
+      const bottomLine = 0;
+      const rangeBetweenDots = 480/data.length;
+
+      let html = '';
+      for(let i=0; i<data.length; i++){
+        const yAxis = (((data[i] - minValue) / range) * (topLine - bottomLine)) + bottomLine;
+        const xAxis = (i+1) * rangeBetweenDots;
+        const nextYAxis = ((data[i+1] - minValue) / range) * topLine;
+        const difference = yAxis < nextYAxis? nextYAxis - yAxis : yAxis - nextYAxis;
+        const hypotenuse = Math.sqrt( (difference*difference) + (rangeBetweenDots*rangeBetweenDots));
+        const angle = Math.asin(difference/hypotenuse) * (180/Math.PI);
+        html += `<li style="--y: ${yAxis}px; --x: ${xAxis}px;">
+                  <div class="data-point" data-value="${data[i]}"></div>
+                  <div class="line-segment" style="--hypotenuse:${hypotenuse}; --angle:${yAxis < nextYAxis ? '-' : ''}${angle};">
+                </li>`;
+      }
+      // console.log(html);
+      lineChart.innerHTML = html;
+    };
+    renderChart();
+  </script>
+  </body>
+</html>
