@@ -12,3 +12,111 @@
 .table tbody .number {
   text-align: right;
 }
+#topCover {
+  background: url('../green-chameleon-s9CC2SKySJM-unsplash.jpg');
+  background-size: cover;
+  background-position: center center;
+  color: white;
+}
+
+#topCover h1, #topCover p {
+    background: rgba(0,0,0,0.3);
+    padding: 6px;
+    border-radius: 6px;
+}
+
+/* parent elemene */
+.css-chart {
+  /* The chart border */
+  border-bottom: 1px solid;
+  border-left: 1px solid;
+  /* the height, which is initially defined in the html */
+  height: var(--widget-size);
+  margin: 1em;
+  padding: 0;
+  position: relative;
+  /* width: var(--widget-size); */
+  width: 640px;
+  background-color: rgb(50,50,50);
+  background-image: linear-gradient(transparent 1px, transparent 1px),
+                    linear-gradient(90deg, transparent 1px, transparent 1px),
+                    linear-gradient(rgba(255, 255, 255, .3) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255, 255, 255, 0.3) 1px, transparent 1px);
+  background-size: 100px 100px, 100px 100px, 25px 25px, 25px 25px;
+  background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+}
+
+.line-chart{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.data-point {
+  background-color: #fff;
+  border: 2px solid lightblue;
+  border-radius: 50%;
+  height: 12px;
+  position: absolute;
+  width: 12px;
+  bottom: calc(var(--y) - 4.4px);
+  left: calc(var(--x) - 6.9px);
+  /* bottom: var(--y);
+  left: var(--x); */
+  cursor: pointer;
+}
+
+.data-point:hover{
+  background-color: rgb(200, 0, 0);
+  border: 2px solid aquamarine;
+  height: 14px;
+  width: 14px;
+}
+
+.line-segment {
+  background-color: blue;
+  bottom: var(--y);
+  height: 3px;
+  left: var(--x);
+  position: absolute;
+  width: calc(var(--hypotenuse) * 1px);
+  border-radius: 4px;
+  transform: rotate(calc(var(--angle) * 1deg));
+  transform-origin: left bottom;
+  width: calc(var(--hypotenuse) * 1px);
+}
+
+.yAxis {
+    /* border: 1px solid blue; */
+    list-style: none;
+    height: 100%;
+    width: 40px;
+    position: absolute;
+    left: -44px;
+    padding-inline-start: 0;
+    /* padding: 0; */
+    margin: 0;
+    font-size: 0.8em;
+    text-align: right;
+}
+
+.xAxis {
+    width: 100%;
+    /* border: 1px solid red; */
+    list-style: none;
+    padding: 0;
+    padding-inline-start: 0;
+    position: absolute;
+    left: 0;
+    bottom: -21px;
+    font-size: 0.8em;
+}
+.yDataLabel {
+    position: absolute;
+    bottom: calc(var(--y) - 9.45px);
+    right: 0;
+}
+.xDataLabel {
+    position: absolute;
+    top: 0;
+    left: var(--x);
+}
