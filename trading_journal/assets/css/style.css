@@ -12,6 +12,7 @@
 .table tbody .number {
   text-align: right;
 }
+
 #topCover {
   background: url('../green-chameleon-s9CC2SKySJM-unsplash.jpg');
   background-size: cover;
@@ -24,6 +25,15 @@
     padding: 6px;
     border-radius: 6px;
 }
+
+#accountSummary {
+  font-size: .8em;
+}
+#accountSummary td {
+    text-align: right;
+    padding: 2px 2px 2px 82px;
+}
+
 
 /* parent elemene */
 .css-chart {

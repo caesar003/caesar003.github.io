@@ -1,12 +1,25 @@
 $(document).ready(function(){
+  let TradingRecord = [];
+  const fetchData = () => {
+    $.ajax({
+      "url": "./assets/js/trades.json",
+      "type": "get",
+      "async": false,
+      "dataType": "json",
+      "success": data => {
+        TradingRecord = data;
+      }
+    });
+  }
+  fetchData();
   const TradeList = {
     "render": () => {
       let trs = '';
       let balance = 0;
-      for(let i=0; i<Trades.length; i++){
+      for(let i=0; i<TradingRecord.length; i++){
         const {date, pair, type, setup, volume, entry, sl, tp, exitDate, exitPrice,
-              profit, swap, comment, ss} = Trades[i];
-          trs += TradeList.getTR(Trades[i], balance);
+              profit, swap, comment, ss} = TradingRecord[i];
+          trs += TradeList.getTR(TradingRecord[i], balance);
           balance = balance + profit + swap;
       }
       $('#tradeList').html(trs);
@@ -106,11 +119,21 @@ $(document).ready(function(){
     "getPopoverTitle": (pair, type, volume) => {
       return `${pair} ${type} ${volume}`;
     },
+    "getPopoverContent": (obj) => {
+      const {type, date, exitDate, profit, balance } = obj;
+      let string = '';
+      if(type === 'deposit'){
+        string += `<span style='font-size:0.43m;'>${$.format.date(date, "dd/MM/yy H:mm")}, ${profit>0?'$':'-$'}${profit > 0 ? profit : Math.sqrt(profit * profit)}</span>`;
+      } else {
+        string += `<span style='font-size:0.4em;'> ${$.format.date(date, "dd/MM/yy H:mm")} => ${$.format.date(exitDate, "dd/MM/yy H:mm")}, <br /> profit: ${profit>0?'$':'-$'}${profit > 0 ? profit : Math.sqrt(profit*profit)}, <br />balance: $${balance.toFixed(2)} </span>`;
+      }
+      return string;
+    },
     "populateBalance": () => {
       const balance = [];
       let currentBalance = 0;
-      for(let i=0; i<Trades.length; i++){
-        const {profit, swap} = Trades[i];
+      for(let i=0; i<TradingRecord.length; i++){
+        const {profit, swap} = TradingRecord[i];
         balance.push(currentBalance + profit + swap);
         currentBalance += (profit + swap);
       }
@@ -130,22 +153,27 @@ $(document).ready(function(){
       return obj;
     },
     "populateX": (data, options) => {
+      const allObj = [];
       const obj = [];
       const {elWidth} = options;
       const interval = elWidth / data.length;
+      const pointSkipped = Math.floor(data.length / 6);
       for(let i=0; i<data.length; i++){
-        obj.push({
+        allObj.push({
           position: (i+1) * interval,
           value: data[i].date,
-        })
+        });
+      }
+      for(let j=0; j<allObj.length; j+=pointSkipped){
+        obj.push(allObj[j]);
       }
       return obj;
     },
     "constructNewObject": (Balance, options) => {
       const obj = [];
       const {elHeight, elWidth, xInterval, maxValue, minValue, range} = options;
-      for(let i=0; i<Trades.length; i++){
-        const { date, type, pair, setup, volume, entry, sl, tp, exitDate, exitPrice, profit, swap, comment } = Trades[i];
+      for(let i=0; i<TradingRecord.length; i++){
+        const { date, type, pair, setup, volume, entry, sl, tp, exitDate, exitPrice, profit, swap, comment } = TradingRecord[i];
         const x = (i+1) * xInterval;
         const y = ((Balance[i] - minValue) / range) * elHeight;
         const yNext = ((Balance[i+1] - minValue) / range) * elHeight;
@@ -157,6 +185,7 @@ $(document).ready(function(){
           "hypotenuse": hypotenuse,
           "angle": Math.asin( (y-yNext) / hypotenuse ) * (180 / Math.PI),
           "date": date,
+          "exitDate": exitDate,
           "pair": pair,
           "type": type,
           "volume": volume,
@@ -186,14 +215,16 @@ $(document).ready(function(){
       let xLabel = '';
 
       for(let i=0; i<data.length; i++){
-        const {balance, x, y, hypotenuse, angle, type, pair, volume, profit} = data[i];
-        lineChart += `<li style="--y:${y}px; --x:${x}px;">
+        const {balance, x, y, hypotenuse, angle, type, pair, volume, profit, date, exitDate} = data[i];
+        lineChart += `<li style="--y:${y}px; --x:${x}px;" data-profit="${profit}">
           <div
             class="data-point"
+            data-profit=${profit}
             data-value="${balance}"
+            data-html="true"
             data-toggle="popover"
-            title="${type === 'deposit'?'Deposit': Chart.getPopoverTitle(pair, type, volume)}"
-            data-content="${profit>0?'$':'-$'}${profit>0?profit:Math.sqrt(profit*profit)}, balance: $${balance.toFixed(2)}"
+            title="${type === 'deposit' ? 'Deposit' : Chart.getPopoverTitle(pair, type, volume)}"
+            data-content="${Chart.getPopoverContent(data[i])}"
             data-placement="bottom"></div>
           <div class="line-segment" style="--hypotenuse:${hypotenuse}; --angle:${angle};"></div>
         </li>`;
@@ -211,7 +242,109 @@ $(document).ready(function(){
       $('#xAxis').html(xLabel);
     }
   };
+
+  const Summary = {
+
+    "render": () => {
+      let html = '';
+      const totalTradingRecord = Summary.calc.totalTradingRecord(TradingRecord);
+      const {
+        grossProfit,
+        profitTradingRecord,
+        largestProfit,
+      } = Summary.calc.Profits(TradingRecord);
+      const {
+        grossLoss,
+        lossTradingRecord,
+        largestLost,
+      } = Summary.calc.Losses(TradingRecord);
+      const netProfit = grossProfit - grossLoss;
+      html += `<tr>
+                <th> Total net profit:</th>
+                <td>${netProfit}</td>
+              </tr>
+              <tr>
+                <th> Gross Profit: </th>
+                <td>${grossProfit}</td>
+              </tr>
+              <tr>
+                <th> Gross Loss:</th>
+                <td> ${grossLoss}</td>
+              </tr>
+              <tr>
+                <th>Total TradingRecord:</th>
+                <td> ${totalTradingRecord}</td>
+              </tr>
+              <tr>
+                <th>Profit TradingRecord(%):</th>
+                <td> ${profitTradingRecord}(${((profitTradingRecord / totalTradingRecord) * 100).toFixed(2)}%)</td>
+              </tr>
+              <tr>
+                <th>Loss TradingRecord(%): </th>
+                <td> ${lossTradingRecord}(${((lossTradingRecord / totalTradingRecord) * 100).toFixed(2)}%)</td>
+              </tr>
+              <tr class="profits" id="largestProfit" data-profit="${largestProfit}">
+                <th>Largest Profit:</th>
+                <td>${largestProfit}</td>
+              </tr>
+              <tr class="profits" id="largestLost" data-profit="${largestLost}">
+                <th>Largest Loss:</th>
+                <td>${largestLost}</td>
+              </tr>`;
+        $('#accountSummary').html(html);
+    },
+    "calc": {
+      "totalTradingRecord": (arr) => {
+        let tradeCounts = 0;
+        for(let i=0; i<arr.length; i++){
+          const { type } = arr[i];
+          if(type !== 'deposit') tradeCounts++;
+        }
+        return tradeCounts;
+      },
+      "Profits": (arr) => {
+        const profits = [];
+        const obj = {
+          grossProfit: 0,
+          profitTradingRecord: 0,
+          largestProfit: 0,
+        }
+        for(let i=0; i<arr.length; i++){
+          const { profit, type } = arr[i];
+          if(profit > 0 && type !== 'deposit') {
+            obj.grossProfit += arr[i].profit;
+            obj.profitTradingRecord++;
+            profits.push(profit);
+          }
+        }
+        obj.largestProfit = Math.max(...profits);
+        return obj;
+      },
+      "Losses": (arr) => {
+        const losses = [];
+        const obj = {
+          grossLoss: 0,
+          lossTradingRecord: 0,
+          largestLost: 0,
+        };
+        for(let i=0; i<arr.length; i++){
+          const { profit, type } = arr[i];
+          if(profit < 0 && type != 'deposit') {
+            obj.grossLoss += profit;
+            obj.lossTradingRecord++;
+            losses.push(profit);
+          }
+        }
+        obj.largestLost = Math.min(...losses);
+        return obj;
+      },
+    }
+  }
+  Summary.render();
   Chart.render();
+  TradeList.render();
+
+  $('#tradeTable').DataTable();
 
   $( ".data-point" ).hover(
     function() {
@@ -220,132 +353,4 @@ $(document).ready(function(){
       $(this).popover('hide')
     }
   );
-
-  // const Chart = {
-  //   "data": {
-  //     "labels": ["Su", "Mo", "Tue", "We", "Th", "Fr", "Sa", "Su", "Mo", "Tue", "We", "Th", "Fr", "Sa", "Su", "Mo", "Tue", "We", "Th", "Fr", "Sa"],
-  //     "series": [
-  //       [12, 12.2, 13, 18, 21, 22.70, 21.9, 22, 24, 23, 26, 27, 28, 30, 31, 33, 36, 34, 35]
-  //     ]
-  //   },
-  //   "options": {
-  //     "height": 240,
-  //   },
-  // };
-
-  // new Chartist.Line('.ct-chart', Chart.data, Chart.options);
-
-  // const Chart = {
-  //   "render": () => {
-  //     const data = Chart.populateData(),
-  //           balances = [];
-  //     for(let i=0; i<data.length; i++){
-  //       balances.push(data[i].balance);
-  //     }
-  //     const maxValue = Math.max(...balances),
-  //           minValue = Math.min(...balances),
-  //           range = maxValue - minValue,
-  //           topLine = 200,
-  //           bottomLine = 0,
-  //           rangeBetweenDots = 640/balances.length,
-  //           yLabel = Chart.getYLabel(maxValue, minValue),
-  //           xLabel = Chart.getXLabel(balances.length, rangeBetweenDots),
-  //           popoverPlacements = ["top", "left", "right", "bottom"];
-  //
-  //     let lis = '';
-  //     for(let i=0; i<balances.length; i++){
-  //       const yAxis = (((balances[i] - minValue) / range) * (topLine - bottomLine)) + bottomLine,
-  //             xAxis = (i+1) * rangeBetweenDots,
-  //             nextYAxis = ((balances[i+1] - minValue) / range) * topLine,
-  //             difference = yAxis - nextYAxis,
-  //             hypotenuse = Math.sqrt( (difference*difference) + (rangeBetweenDots*rangeBetweenDots)),
-  //             angle = Math.asin(difference/hypotenuse) * (180/Math.PI);
-  //       lis += `<li title="${Number(balances[i]).toFixed(2)}" style="--y: ${yAxis}px; --x: ${xAxis}px;">
-  //                 <div
-  //                   class="data-point"
-  //                   data-value="${balances[i]}"
-  //                   data-toggle="popover"
-  //                   title="${data[i].type === 'deposit'?'Deposit': Chart.getPopoverTitle(data[i].pair, data[i].type, data[i].volume)}"
-  //                   data-content="${data[i].profit>0?'$':'-$'}${data[i].profit>0?data[i].profit:Math.sqrt(data[i].profit*data[i].profit)}, balance: $${data[i].balance.toFixed(2)}"
-  //                   data-placement="${popoverPlacements[Math.floor(Math.random() * 4)]}"
-  //                 ></div>
-  //                 <div class="line-segment" style="--hypotenuse:${hypotenuse}; --angle:${angle};"></div>
-  //               </li>`;
-  //     }
-  //
-  //     $('#lineChart').html(lis);
-  //     $('#chartYLabel').html(yLabel);
-  //     $('#chartXLabel').html(xLabel);
-  //   },
-  //   "populateData": () => {
-  //     const arr = [];
-  //     let balance = 0;
-  //     for(let i=0; i<Trades.length; i++){
-  //       const {pair, type, volume, profit, swap} = Trades[i];
-  //       arr.push({
-  //         pair: pair,
-  //         type: type,
-  //         volume: volume,
-  //         profit: profit,
-  //         balance: balance + profit + swap,
-  //       });
-  //       balance = balance + profit + swap;
-  //     }
-  //     return arr;
-  //   },
-  //   "getYLabel": (max, min) => {
-  //     let label = '';
-  //     const points = [max.toFixed(2)];
-  //     const multipliers = [0.75, 0.50, 0.25];
-  //     const positions = [200, 150, 100, 50, 0]
-  //     const range = max - min; // 60
-  //     for(let i=0; i<multipliers.length; i++){
-  //       points.push( ((range * multipliers[i]) + min).toFixed(2) )
-  //     }
-  //     points.push(min.toFixed(2));
-  //
-  //     for(let i=0; i<points.length; i++){
-  //       label += `<li class="YLabel" style="--y:${positions[i]}px;">
-  //                   <div class="dataYLabel">${points[i]}</div>
-  //                 </li>`;
-  //     }
-  //     return label;
-  //   },
-  //   "getXLabel": (n, space) => {
-  //     let label = '';
-  //     const positions = [];
-  //     const filteredPos = [];
-  //     const interval = Math.floor(n / 6);
-  //     for(let i=0; i<n; i++){
-  //       positions.push({
-  //         value: i+1,
-  //         position: space * (i+1),
-  //       });
-  //     }
-  //     for(let x=0; x<positions.length; x+=interval){
-  //       filteredPos.push(positions[x]);
-  //     }
-  //     for(let y=0; y<filteredPos.length; y++){
-  //       const {value, position} = filteredPos[y];
-  //       label += `<li class="XLabel" style="--x:${position}px;">
-  //                   <div class="dataXLabel">${value}</div>
-  //                 </li>`
-  //     }
-  //     return label;
-  //   },
-  //   "getPopoverTitle": (pair, type, volume) => {
-  //     return `${pair} ${type} ${volume}`;
-  //   },
-  // };
-  TradeList.render();
-  // Chart.render();
-  $('#tradeTable').DataTable();
-  // $( ".data-point" ).hover(
-  //   function() {
-  //     $(this).popover('show')
-  //   }, function() {
-  //     $(this).popover('hide')
-  //   }
-  // );
-  // $('[data-toggle="popover"]').popover();
 });
