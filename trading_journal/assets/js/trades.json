@@ -165,6 +165,21 @@
     "comment": ""
   },
   {
+    "date": "2020-10-01 00:00:00",
+    "type": "deposit",
+    "pair": "",
+    "setup": "",
+    "volume": 0,
+    "entry": 0,
+    "sl": 0,
+    "tp": 0,
+    "exitDate": "2020-10-01 00:00:00",
+    "exitPrice": "",
+    "profit": -120,
+    "swap": 0.00,
+    "comment": ""
+  },
+  {
     "date": "2020-10-16 00:00:00",
     "type": "long",
     "pair": "eurusd",
