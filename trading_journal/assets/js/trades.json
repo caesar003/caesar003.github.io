@@ -130,7 +130,7 @@
     "tp": 1.13700,
     "exitDate": "2020-10-13 00:00:00",
     "exitPrice": 0.97700,
-    "profit": 50,
+    "profit": -20,
     "swap": 0.00,
     "comment": ""
   },
@@ -145,7 +145,7 @@
     "tp": 1.13700,
     "exitDate": "2020-10-14 00:00:00",
     "exitPrice": 0.97700,
-    "profit": 50,
+    "profit": 54,
     "swap": 0.00,
     "comment": ""
   },
@@ -175,7 +175,7 @@
     "tp": 1.13700,
     "exitDate": "2020-10-16 00:00:00",
     "exitPrice": 0.97700,
-    "profit": 50,
+    "profit": 56,
     "swap": 0.00,
     "comment": ""
   },
@@ -190,7 +190,7 @@
     "tp": 1.13700,
     "exitDate": "2020-10-19 00:00:00",
     "exitPrice": 0.97700,
-    "profit": 50,
+    "profit": -23,
     "swap": 0.00,
     "comment": ""
   },
@@ -205,7 +205,7 @@
     "tp": 1.13700,
     "exitDate": "2020-10-20 00:00:00",
     "exitPrice": 0.97700,
-    "profit": 50,
+    "profit": 60,
     "swap": 0.00,
     "comment": ""
   },
@@ -220,7 +220,7 @@
     "tp": 1.13700,
     "exitDate": "2020-10-21 00:00:00",
     "exitPrice": 0.97700,
-    "profit": 50,
+    "profit": 64,
     "swap": 0.00,
     "comment": ""
   },
@@ -235,7 +235,7 @@
     "tp": 1.13700,
     "exitDate": "2020-10-22 00:00:00",
     "exitPrice": 0.97700,
-    "profit": 50,
+    "profit": -21,
     "swap": 0.00,
     "comment": ""
   }

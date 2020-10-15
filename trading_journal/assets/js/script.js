@@ -247,10 +247,10 @@ $(document).ready(function(){
 
     "render": () => {
       let html = '';
-      const totalTradingRecord = Summary.calc.totalTradingRecord(TradingRecord);
+      const totalTrades = Summary.calc.totalTrades(TradingRecord);
       const {
         grossProfit,
-        profitTradingRecord,
+        profitTrades,
         largestProfit,
       } = Summary.calc.Profits(TradingRecord);
       const {
@@ -258,43 +258,43 @@ $(document).ready(function(){
         lossTradingRecord,
         largestLost,
       } = Summary.calc.Losses(TradingRecord);
-      const netProfit = grossProfit - grossLoss;
+      const netProfit = grossProfit + grossLoss;
       html += `<tr>
                 <th> Total net profit:</th>
-                <td>${netProfit}</td>
+                <td>${netProfit.toFixed(2)}</td>
               </tr>
               <tr>
                 <th> Gross Profit: </th>
-                <td>${grossProfit}</td>
+                <td>${grossProfit.toFixed(2)}</td>
               </tr>
               <tr>
                 <th> Gross Loss:</th>
-                <td> ${grossLoss}</td>
+                <td> ${grossLoss.toFixed(2)}</td>
               </tr>
               <tr>
-                <th>Total TradingRecord:</th>
-                <td> ${totalTradingRecord}</td>
+                <th>Total Trades:</th>
+                <td> ${totalTrades}</td>
               </tr>
               <tr>
-                <th>Profit TradingRecord(%):</th>
-                <td> ${profitTradingRecord}(${((profitTradingRecord / totalTradingRecord) * 100).toFixed(2)}%)</td>
+                <th>Profit Trades(%):</th>
+                <td> ${profitTrades}(${((profitTrades / totalTrades) * 100).toFixed(2)}%)</td>
               </tr>
               <tr>
-                <th>Loss TradingRecord(%): </th>
-                <td> ${lossTradingRecord}(${((lossTradingRecord / totalTradingRecord) * 100).toFixed(2)}%)</td>
+                <th>Loss Trades(%): </th>
+                <td> ${lossTradingRecord}(${((lossTradingRecord / totalTrades) * 100).toFixed(2)}%)</td>
               </tr>
               <tr class="profits" id="largestProfit" data-profit="${largestProfit}">
                 <th>Largest Profit:</th>
-                <td>${largestProfit}</td>
+                <td>${largestProfit.toFixed(2)}</td>
               </tr>
               <tr class="profits" id="largestLost" data-profit="${largestLost}">
                 <th>Largest Loss:</th>
-                <td>${largestLost}</td>
+                <td>${largestLost.toFixed(2)}</td>
               </tr>`;
         $('#accountSummary').html(html);
     },
     "calc": {
-      "totalTradingRecord": (arr) => {
+      "totalTrades": (arr) => {
         let tradeCounts = 0;
         for(let i=0; i<arr.length; i++){
           const { type } = arr[i];
@@ -306,14 +306,14 @@ $(document).ready(function(){
         const profits = [];
         const obj = {
           grossProfit: 0,
-          profitTradingRecord: 0,
+          profitTrades: 0,
           largestProfit: 0,
         }
         for(let i=0; i<arr.length; i++){
           const { profit, type } = arr[i];
           if(profit > 0 && type !== 'deposit') {
             obj.grossProfit += arr[i].profit;
-            obj.profitTradingRecord++;
+            obj.profitTrades++;
             profits.push(profit);
           }
         }
