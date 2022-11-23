@@ -1,0 +1,74 @@
+.container {
+    display: block;
+}
+
+.hero {
+    max-width: 1200px;
+    height: 400px;
+    position: relative;
+    margin: auto;
+    padding: 3rem;
+    background: url("./assets/img/Screenshot\ from\ 2022-11-23\ 17-18-08.png");
+    background-size: cover;
+    background-position: center center;
+}
+
+
+.text-wrapper {
+    width: 60%;
+    margin: 3rem auto;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 2rem;
+    border-radius: 20px;
+    text-shadow: 1px 1px 5px rgba(255, 255, 255, 0.1);
+}
+.text-wrapper p {
+    font-size: 1.2rem;
+}
+
+.portfolios {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.portfolio-card {
+    aspect-ratio: 16/9;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    box-shadow: 0 1px  12px rgba(0, 0, 0, 0.1);
+}
+.portfolio-card a {
+    /* margin: 8px; */
+    padding: 8px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #fff;
+    letter-spacing: 2px;
+    display: block;
+    background: rgba(0, 0, 0, 0.6);
+    width: 100%;
+}
+
+.portfolio-card a:hover {
+    color: gray;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width:680px){
+    .text-wrapper {
+        width: 80%;
+        margin: 2rem auto;
+        padding: 1rem;
+    }
+
+    .portfolios {
+        grid-template-columns: 1fr;
+    }
+}

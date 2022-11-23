@@ -95,7 +95,7 @@ $(document).ready(function(){
     }
     $('#portfolio-card').html(displayedCard);
   }
-  renderCards();
+  // renderCards();
 
   $('#portfolios').on('click', '.card', function(){
     const link = $(this).data('link');

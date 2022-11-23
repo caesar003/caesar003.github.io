@@ -1,99 +1,45 @@
-@font-face {
-  font-family: 'Montserrat';
-  src:url('assets/font/Montserrat-Regular.ttf');
+
+.main,
+.side {
+    padding: 2rem;
 }
-@font-face {
-  src: url('./assets/font/BrushScript-Italic.ttf');
-  font-family: 'BrushScript';
+.main {
+    grid-column: 1/9;
 }
-body {
-  font-family: 'Montserrat', sans-serif;
-}
-.navbar-brand img {
-  width: 25px;
-  height: auto;
-}
-li.nav-item.active{
-  background-color:cadetblue;
-  border-radius:4px;
-  }
-.navbar-light .navbar-nav .active>.nav-link{
-  color:cornsilk;
-}
-.jumbotron {
-  background: url('./assets/img/hannah-morgan-ycVFts5Ma4s-unsplash.jpg');
-  background-size: cover;
-  background-position:center center;
-}
-#cover h1 {
-  font-family: "BrushScript", sans-serif;
-  font-size: 5rem;
-}
-#cover h1, #cover p {
-  color:cornsilk;
-  text-shadow: 0px 4px 3px rgba(0,0,0,0.4);
-               /* 0px 8px 13px rgba(0,0,0,0.1),
-               0px 18px 22px rgba(0,0,0,0.1); */
-}
-#cover {
-  box-shadow: 0px 4px 3px rgba(0,0,0,0.4),
-               0px 8px 13px rgba(0,0,0,0.1),
-               0px 18px 22px rgba(0,0,0,0.1);
-}
-.form-contact-wrapper{
-  background-color: transparent;
+.main p {
+    line-height: 2rem;
 }
 
-section {
-  padding-top: 68px;
-}
-.jumbotron h1 {
-  margin-top: 80px;
+.side {
+    grid-column: 9/13;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-.tshd {
-  color:cornsilk;
-  text-shadow: 0px 4px 3px rgba(0,0,0,0.4);
-               /* 0px 8px 13px rgba(0,0,0,0.1),
-               0px 18px 22px rgba(0,0,0,0.1); */
+.side ul {
+    line-height: 2rem;
+    list-style-type: none;
 }
-#portfolios .card {
-  box-shadow: 10px 5px 5px #3f51b536;
-  min-height: 410px;
+
+.profile-picture {
+    width: 100px;
+    height: 120px;
+    background-color: #111;
+    background: url("./assets/img/profile-picture.jpg") no-repeat top
+        center/cover;
+    border-radius: 8px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1), 2px 2px 8px rgba(0, 0, 0, 0.1);
 }
-#portfolios .card:hover {
-  opacity: 0.7;
-  cursor: pointer;
-}
-.section-title {
-  text-align: center;
-  padding-bottom: 40px;
-}
-.section-title h1 {
-  color:navy;
-  text-shadow: 0px 4px 3px rgba(0,0,0,0.4);
-               /* 0px 8px 13px rgba(0,0,0,0.1),
-               0px 18px 22px rgba(0,0,0,0.1); */
-}
- hr {
-  max-width: 65px;
-  border-width: 3px;
-  border-color: navy;
-  box-shadow: 0px 4px 3px rgba(0,0,0,0.4),
-               0px 8px 13px rgba(0,0,0,0.1),
-               0px 18px 22px rgba(0,0,0,0.1);
-}
-footer {
-  background-color: burlywood;
-  height: 78px;
-  border-top-right-radius: 16px;
-  border-top-left-radius: 16px;
-}
-#contact a {
-  color:black;
-}
-#contact a:hover{
-  color:#f04903;
-  font-weight: bold;
-  text-decoration: underline;
+
+@media (max-width: 500px) {
+    .container {
+        margin-top: 2rem;
+    }
+    .main,
+    .side {
+        grid-column: 1 / 13;
+        padding: 2rem;
+    }
 }

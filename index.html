@@ -1,115 +1,65 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Welcome</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/fontawesome/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="./index.css">
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="#cover"><img class="rounded-circle mr-2" src="assets/img/avatar.jpg" alt="profile picture" /> Caesar</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#cover">Home  <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#about">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#portfolios">Portfolios</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#contact">Contact</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <section class="jumbotron text-center" id="cover">
-      <h1 class="">Welcome!</h1>
-      <p class="">This is showcase of my work, hope you like it.</p>
-      <hr class="my-4">
-      <a class="btn btn-warning btn-lg" href="#portfolios" role="button">Find Out More</a>
-      <a class="btn btn-info btn-lg" href="https://github.com/caesar003/caesar003.github.io" role="button"><i class="fab fa-github"></i> See on Github</a>
-    </section>
-    <section class="container my-4" id="about">
-      <div class="section-title">
-        <h1 class="display-4">ABOUT</h1>
-        <hr>
-      </div>
-      <div class="row justify-content-around">
-        <div class="col-10 col-sm-8 col-md-5">
-          <p class="lead">Below are links to web pages that I recently built and designed. Most of them were done as I follow along the books and video courses. Feel free to grab the code and play along with them. If you have questions, don't hesitate to reach me. </p>
-        </div>
-        <div class="col-10 col-sm-8 col-md-5">
-          <h1 class="text-center">Who I am</h1>
-          <p>My name is caesar, and I am a self taught web developer. Currently I only have a few things in my web development arsenal, HTML, CSS, JavaScript, Bootstrap, PHP, MySQL, CodeIgniter, NodeJS, React, and PostgreSQL. And now I'm on my way honing my skill on React Native and Python. </p>
-        </div>
-      </div>
-    </section>
-    <section class="container my-4" id="portfolios">
-      <div class="section-title">
-        <h1 class="display-4">PORTFOLIOS</h1>
-        <hr>
-      </div>
-      <div class="row justify-content-around align-items-center" id="portfolio-card">
-
-      </div>
-    </section>
-    <section class="container my-4" id="contact">
-      <div class="section-title">
-        <h1 class="display-4">CONTACT ME</h1>
-        <hr>
-      </div>
-      <div class="row align-items-center justify-content-center">
-        <!-- <div class="col-md-7 mb-3 pb-3">
-          <p class="lead">I'd love to hear from you</p>
-          <form autocomplete="off"  id="contactForm">
-            <div class="form-group">
-              <label class="" for="name">Name</label>
-              <input type="text" class="form-control" id="name">
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Welcome || Caesar Website</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+            integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+        <link rel="stylesheet" href="./main.css">
+        <link rel="stylesheet" href="./index.css" />
+    </head>
+    <body>
+        <nav>
+            <a href="#" class="navbar-brand">
+                <img src="./assets/img/avatar.jpg" alt="caesar avatar" />
+                <span>Caesar</span>
+            </a>
+            <ul>
+                <li class="active"><a href="index.html">Home</a></li>
+                <li><a href="portfolios.html">Portfolios</a></li>
+                <!-- <li><a href="blog.html">Blog</a></li> -->
+            </ul>
+        </nav>
+        <div class="container">
+            <div class="main">
+                <h1>Who I am</h1>
+                <p>
+                    My name is caesar, and I believe that
+                    <em>life is full of surprise</em>. That in a blink of an
+                    aye, something happens and everything else changes, which in
+                    turn sets you in a course of life you never expected, in a
+                    way you never imagined.
+                </p>
+                <p>
+                    I am a self taught web developer. I currently have a few
+                    things in my web development toolbox including HTML, CSS,
+                    JavaScript, React, MySQL and Python. At the moment I'm
+                    getting my hands dirty, digging into data structure and
+                    algorithm.
+                </p>
             </div>
-            <div class="form-group">
-              <label class="" for="email">Email address</label>
-              <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
-              <small id="emailHelp" class="form-text text-muted">I'll never share your email with anyone else.</small>
+            <div class="side">
+                <div class="profile-picture"></div>
+                <ul>
+                    <li><strong>Name</strong>: Khaisar Muksid</li>
+                    <li><strong>Birthday</strong>: March, 1994</li>
+                    <li><strong>Hobbies</strong>: chess, reading</li>
+                    <li><strong>Phone</strong>: 6285719098641</li>
+                    <li>
+                        <strong>Email</strong>:
+                        <a href="mailto:caesar003@myself.com"
+                            >caesar003@myself.com</a
+                        >
+                    </li>
+                </ul>
             </div>
-            <div class="form-group">
-              <label class="" for="message">Message</label>
-              <textarea class="form-control" id="message"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Send Message</button>
-          </form>
-        </div> -->
-        <div class="col-md-7 pb-3">
-          <p class="text-center">You may choose the most convenient way you can have to get in touch with me.</p>
-          <ul class="list-group">
-            <li class="list-group-item"><i style="color:#64d448;" class="fab fa-whatsapp-square fa-fw"></i> <a href="https://wa.me/6285719098641">+62 857 190 98 641</a></li>
-            <li class="list-group-item"><i style="color:#3b5998;" class="fab fa-facebook fa-fw"></i> <a href="https://facebook.com/cae.sar.3110567"> Cae Sar</a></li>
-            <li class="list-group-item"><i style="color:#00aced;" class="fab fa-twitter fa-fw"></i> <a href="https://twitter.com/Caesaar03"> @Caesaar</a></li>
-            <li class="list-group-item"><i style="color:#dd0000;" class="fab fa-instagram fa-fw"></i> <a href="instagram://user?username=caesar.muksid"> Cae Sar</a></li>
-            <li class="list-group-item"><i style="color:navy;" class="fas fa-envelope fa-fw"></i><a href="mailto:caesar003@myself.com"> caesar003@myself.com</a></li>
-            <li class="list-group-item"><i style="color:#171576;" class="fab fa-github fa-fw"></i><a href="https://github.com/caesar003"> caesar003</a></li>
-            <li class="list-group-item"><i style="color:#007bb6" class="fab fa-linkedin fa-fw"></i><a href="https://www.linkedin.com/in/khaisar-muksid-96755a159"> Khaisar Muksid</a></li>
-          </ul>
         </div>
-      </div>
-    </section>
-    <footer class="bshd text-center mx-4 d-flex justify-content-center align-items-end">
-	    <p class="lead"><small>Copyright &copy; Company 2020</small></p>
-    </footer>
-
-    <script type="text/javascript" src="assets/js/jquery-3.4.1.min.js"></script>
-    <script type="text/javascript" src="assets/js/bootstrap.bundle.min.js"></script>
-    <script src="index.js"></script>
-  </body>
+        <footer></footer>
+    </body>
 </html>
