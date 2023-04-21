@@ -55,20 +55,20 @@ const links = [
         description:
             "Provide a compact view for bunch of your products and services in a single page. ",
     },
-    {
-        image: "blog.jpg",
-        title: "Blog post",
-        link: "blog",
-        description:
-            "A simple blog post template which is worth considering for those who like writing and sharing ideas about particular subject such as food and travelling.",
-    },
+    // {
+    //     image: "blog.jpg",
+    //     title: "Blog post",
+    //     link: "blog",
+    //     description:
+    //         "A simple blog post template which is worth considering for those who like writing and sharing ideas about particular subject such as food and travelling.",
+    // },
 
-    {
-        image: "library.png",
-        title: "Library",
-        link: "library",
-        description: "A simple web app containing collection of books",
-    },
+    // {
+    //     image: "library.png",
+    //     title: "Library",
+    //     link: "library",
+    //     description: "A simple web app containing collection of books",
+    // },
     {
         image: "musician.png",
         title: "I'm a Musician",
